@@ -42,13 +42,14 @@ export function ProjectFilters({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <Badge 
-            variant={selectedTech === tech ? "default" : "outline"} 
-            className="py-1.5 px-3 cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors text-xs sm:text-sm"
+          <div 
+            className={`industrial-border py-1.5 px-3 cursor-pointer ${selectedTech === tech ? "bg-primary/20" : "bg-transparent"}`}
             onClick={() => setSelectedTech(selectedTech === tech ? null : tech)}
           >
-            {tech}
-          </Badge>
+            <span className={`text-xs sm:text-sm font-mono ${selectedTech === tech ? "text-primary" : "text-muted-foreground"}`}>
+              {tech}
+            </span>
+          </div>
         </motion.div>
       ))}
       {selectedTech && (
@@ -56,13 +57,12 @@ export function ProjectFilters({
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
         >
-          <Badge 
-            variant="secondary"
-            className="py-1.5 px-3 cursor-pointer text-xs sm:text-sm"
+          <div 
+            className="underground-button py-1.5 px-3 cursor-pointer"
             onClick={() => setSelectedTech(null)}
           >
-            Effacer le filtre ×
-          </Badge>
+            <span className="uppercase tracking-wider text-xs sm:text-sm">Effacer le filtre ×</span>
+          </div>
         </motion.div>
       )}
     </motion.div>
@@ -70,29 +70,31 @@ export function ProjectFilters({
   
   return (
     <div className="mb-6 sm:mb-8">
-      <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-center">Filtrer par technologie</h2>
+      <div className="inline-block industrial-border px-4 py-1 mb-3 sm:mb-4 mx-auto">
+        <span className="underground-text text-sm">FILTRER PAR TECHNOLOGIE</span>
+      </div>
       
       {isMobile ? (
         <ScrollArea className="w-full whitespace-nowrap pb-4">
           <div className="flex space-x-2 p-1">
             {uniqueTechnologies.map((tech) => (
-              <Badge 
+              <div 
                 key={tech}
-                variant={selectedTech === tech ? "default" : "outline"} 
-                className="py-1.5 px-3 cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors text-xs"
+                className={`industrial-border py-1.5 px-3 cursor-pointer ${selectedTech === tech ? "bg-primary/20" : "bg-transparent"}`}
                 onClick={() => setSelectedTech(selectedTech === tech ? null : tech)}
               >
-                {tech}
-              </Badge>
+                <span className={`text-xs font-mono ${selectedTech === tech ? "text-primary" : "text-muted-foreground"}`}>
+                  {tech}
+                </span>
+              </div>
             ))}
             {selectedTech && (
-              <Badge 
-                variant="secondary"
-                className="py-1.5 px-3 cursor-pointer text-xs"
+              <div 
+                className="underground-button py-1.5 px-3 cursor-pointer"
                 onClick={() => setSelectedTech(null)}
               >
-                Effacer ×
-              </Badge>
+                <span className="uppercase tracking-wider text-xs">Effacer ×</span>
+              </div>
             )}
           </div>
         </ScrollArea>

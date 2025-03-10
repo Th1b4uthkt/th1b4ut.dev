@@ -87,27 +87,26 @@ const whiteLabelApps: WhiteLabelApp[] = [
 export function WhiteLabelProduction() {
   return (
     <section className="relative w-full py-12 md:py-24 overflow-hidden">
-      {/* Background elements avec z-index ajusté */}
-      <div className="absolute inset-0 bg-grid-small-black/[0.03] -z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background -z-[1]" />
+      {/* Background elements avec style underground */}
+      <div className="absolute inset-0 bg-grid-small-black/[0.05] -z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90 -z-[1]" />
+      <div className="absolute inset-0 studio-grid -z-[1] opacity-30" />
       
       <div className="container-centered">
-        {/* En-tête avec z-index et position relative */}
+        {/* En-tête avec style underground */}
         <div className="relative z-10 content-section text-center mb-10">
-          <Badge 
-            variant="outline" 
-            className="border-primary/20 mb-4 px-6 py-2 text-lg"
-          >
-            Solutions Professionnelles
-          </Badge>
+          <div className="inline-block industrial-border px-6 py-2 mb-4">
+            <span className="underground-text text-lg">GHOST PRODUCTION</span>
+          </div>
           <h2 className="relative text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              White Label - Ghost Production
+            <span className="underground-gradient-text">
+              White Label Solutions
             </span>
           </h2>
+          <div className="vu-meter mx-auto w-1/2 max-w-[300px] mb-8" style={{ "--level": "65%" } as React.CSSProperties}></div>
         </div>
 
-        {/* Section Swiper avec centrage amélioré */}
+        {/* Section Swiper avec style underground */}
         <div className="w-full max-w-[1400px] mx-auto">
           <Swiper
             modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
@@ -162,14 +161,14 @@ export function WhiteLabelProduction() {
               </SwiperSlide>
             ))}
 
-            {/* Navigation buttons avec style amélioré */}
+            {/* Navigation buttons avec style underground */}
             <div className="swiper-button-next !text-primary after:!text-2xl !right-2 md:!right-4 lg:!right-8 hover:!text-accent transition-colors"></div>
             <div className="swiper-button-prev !text-primary after:!text-2xl !left-2 md:!left-4 lg:!left-8 hover:!text-accent transition-colors"></div>
           </Swiper>
         </div>
       </div>
 
-      {/* 6. Styles pour Swiper */}
+      {/* Styles pour Swiper avec thème underground */}
       <style jsx global>{`
         .swiper-container {
           width: 100%;
@@ -218,11 +217,11 @@ function AppCard({ app }: { app: WhiteLabelApp }) {
   return (
     <motion.div
       whileHover={{ y: -10 }}
-      className="glass-card rounded-2025 hover-lift w-full h-full"
+      className="underground-card rounded-sm hover-lift w-full h-full"
     >
       <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${app.color}`} />
       
-      <div className="aspect-[4/3] overflow-hidden relative">
+      <div className="aspect-[4/3] overflow-hidden relative vhs-effect">
         <Image
           src={app.image}
           alt={app.title}
@@ -230,16 +229,16 @@ function AppCard({ app }: { app: WhiteLabelApp }) {
           height={450}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="absolute bottom-0 left-0 p-4">
-          <Badge className={`bg-gradient-to-r ${app.color} text-white border-none`}>
-            {app.title}
-          </Badge>
+          <div className="industrial-border px-3 py-1 inline-block">
+            <span className="underground-text text-sm">{app.title}</span>
+          </div>
         </div>
       </div>
       
       <div className="p-5">
-        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+        <h3 className="underground-text text-xl mb-2 group-hover:text-primary transition-colors">
           {app.title}
         </h3>
         <p className="text-muted-foreground text-sm mb-4">
@@ -247,28 +246,26 @@ function AppCard({ app }: { app: WhiteLabelApp }) {
         </p>
         
         <div className="space-y-2">
-          <p className="text-sm font-medium">Fonctionnalités clés:</p>
+          <p className="text-sm font-medium terminal-underground">Fonctionnalités:</p>
           <ul className="space-y-1">
-            {app.features.map((feature, index) => (
-              <li key={index} className="text-sm text-muted-foreground flex items-start">
-                <span className="text-primary mr-2">•</span>
+            {app.features.map((feature, idx) => (
+              <li key={idx} className="text-xs text-muted-foreground flex items-start">
+                <span className="text-primary mr-2">›</span>
                 {feature}
               </li>
             ))}
           </ul>
         </div>
         
-        <div className="mt-4 pt-4 border-t flex justify-between items-center">
-          <div className="flex items-center">
-            <span className={`p-2 rounded-full bg-gradient-to-r ${app.color} text-white mr-2`}>
-              {app.icon}
-            </span>
-            <span className="text-sm font-medium">React Native + Supabase</span>
-          </div>
-          <Button variant="ghost" size="sm" className="group/btn">
-            En savoir plus
-            <FaArrowRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-1" />
-          </Button>
+        <div className="mt-4 pt-4 border-t border-primary/10">
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="underground-button text-xs w-full py-2 rounded-sm flex items-center justify-center gap-2"
+          >
+            <span>DÉCOUVRIR</span>
+            <FaArrowRight className="h-3 w-3" />
+          </motion.button>
         </div>
       </div>
     </motion.div>

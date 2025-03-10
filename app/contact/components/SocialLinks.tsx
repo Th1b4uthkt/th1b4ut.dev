@@ -11,7 +11,10 @@ const iconMap = {
 export function SocialLinks() {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Réseaux sociaux</h2>
+      <div className="inline-block industrial-border px-4 py-1 mb-4">
+        <span className="underground-text text-sm">RÉSEAUX</span>
+      </div>
+      
       <div className="flex gap-3">
         {socialLinks.map((link) => {
           const IconComponent = iconMap[link.icon as keyof typeof iconMap];
@@ -21,10 +24,10 @@ export function SocialLinks() {
               href={link.url} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-muted hover:bg-primary/10 transition-colors"
+              className="industrial-border flex items-center justify-center w-10 h-10 hover:bg-primary/10 transition-colors"
               aria-label={link.name}
             >
-              <IconComponent className="h-5 w-5" />
+              <IconComponent className="h-5 w-5 text-primary" />
             </a>
           );
         })}

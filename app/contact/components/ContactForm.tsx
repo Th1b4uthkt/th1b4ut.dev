@@ -65,7 +65,11 @@ export function ContactForm() {
   };
 
   return (
-    <div className="rounded-lg border bg-card p-6 md:p-8 shadow-sm">
+    <div className="underground-card p-6 md:p-8 rounded-sm">
+      <div className="inline-block industrial-border px-4 py-1 mb-4">
+        <span className="underground-text text-sm">FORMULAIRE</span>
+      </div>
+      
       {!isSubmitted ? (
         <motion.form 
           initial={{ opacity: 0 }}
@@ -75,7 +79,7 @@ export function ContactForm() {
           className="space-y-6"
         >
           <div className="space-y-2">
-            <Label htmlFor="name">Nom complet</Label>
+            <Label htmlFor="name" className="font-mono">Nom complet</Label>
             <Input
               id="name"
               name="name"
@@ -84,12 +88,12 @@ export function ContactForm() {
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full"
+              className="w-full industrial-border bg-transparent font-mono"
             />
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="font-mono">Email</Label>
             <Input
               id="email"
               name="email"
@@ -98,12 +102,12 @@ export function ContactForm() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full"
+              className="w-full industrial-border bg-transparent font-mono"
             />
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="company">Entreprise (optionnel)</Label>
+            <Label htmlFor="company" className="font-mono">Entreprise (optionnel)</Label>
             <Input
               id="company"
               name="company"
@@ -111,22 +115,22 @@ export function ContactForm() {
               placeholder="Nom de votre entreprise"
               value={formData.company}
               onChange={handleChange}
-              className="w-full"
+              className="w-full industrial-border bg-transparent font-mono"
             />
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="service">Service qui vous intéresse</Label>
+            <Label htmlFor="service" className="font-mono">Service qui vous intéresse</Label>
             <Select 
               value={formData.service || "default"}
               onValueChange={handleSelectChange}
             >
-              <SelectTrigger>
+              <SelectTrigger className="industrial-border bg-transparent font-mono">
                 <SelectValue placeholder="Sélectionner un service" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="underground-card font-mono">
                 {serviceOptions.map((option) => (
-                  <SelectItem key={option.value} value={option.value}>
+                  <SelectItem key={option.value} value={option.value} className="font-mono">
                     {option.label}
                   </SelectItem>
                 ))}
@@ -135,7 +139,7 @@ export function ContactForm() {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="message">Votre message</Label>
+            <Label htmlFor="message" className="font-mono">Votre message</Label>
             <Textarea
               id="message"
               name="message"
@@ -144,20 +148,24 @@ export function ContactForm() {
               rows={5}
               value={formData.message}
               onChange={handleChange}
-              className="w-full resize-none"
+              className="w-full resize-none industrial-border bg-transparent font-mono"
             />
           </div>
           
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <button 
+            type="submit" 
+            className="underground-button w-full py-3 rounded-sm flex items-center justify-center" 
+            disabled={isSubmitting}
+          >
             {isSubmitting ? (
               <div className="flex items-center">
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                Envoi en cours...
+                <span className="uppercase tracking-wider text-sm">Envoi en cours...</span>
               </div>
             ) : (
-              "Envoyer le message"
+              <span className="uppercase tracking-wider text-sm">Envoyer le message</span>
             )}
-          </Button>
+          </button>
         </motion.form>
       ) : (
         <motion.div 
@@ -166,20 +174,19 @@ export function ContactForm() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center justify-center py-10 space-y-4"
         >
-          <div className="rounded-full bg-primary/10 p-3 w-16 h-16 flex items-center justify-center">
+          <div className="industrial-border p-3 w-16 h-16 flex items-center justify-center">
             <CheckCircle className="h-8 w-8 text-primary" />
           </div>
-          <h3 className="text-2xl font-bold">Message envoyé!</h3>
-          <p className="text-center text-muted-foreground">
+          <h3 className="text-2xl font-bold underground-text">Message envoyé!</h3>
+          <p className="text-center text-muted-foreground font-mono">
             Merci pour votre message. Je vous répondrai dans les plus brefs délais, généralement sous 24 heures.
           </p>
-          <Button
-            variant="outline"
+          <button
             onClick={() => setIsSubmitted(false)}
-            className="mt-4"
+            className="industrial-border px-6 py-3 rounded-sm mt-4"
           >
-            Envoyer un autre message
-          </Button>
+            <span className="terminal-underground text-sm">Envoyer un autre message</span>
+          </button>
         </motion.div>
       )}
     </div>

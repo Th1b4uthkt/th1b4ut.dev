@@ -114,10 +114,12 @@ export function TechnicalSkills() {
   };
 
   return (
-    <section className="w-full py-10 md:py-16 lg:py-20 bg-muted/30 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-small-black/[0.02] -z-10" />
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background/30 to-transparent -z-10" />
+    <section className="w-full py-10 md:py-16 lg:py-20 relative overflow-hidden">
+      {/* Background decoration avec style underground */}
+      <div className="absolute inset-0 bg-grid-small-black/[0.05] -z-10" />
+      <div className="absolute inset-0 studio-grid -z-10 opacity-30" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
       <div className="container px-4 md:px-6 mx-auto">
         <motion.div 
@@ -127,18 +129,19 @@ export function TechnicalSkills() {
           transition={{ duration: 0.5 }}
         >
           <motion.div 
-            className="inline-flex items-center justify-center rounded-full bg-muted p-1"
+            className="inline-block industrial-border px-4 py-1 mb-2"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <span className="rounded-full px-4 py-1 text-sm font-medium bg-primary/10 text-primary">Expertise Technique</span>
+            <span className="underground-text text-sm">EXPERTISE TECHNIQUE</span>
           </motion.div>
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Stack Technologique</h2>
+            <h2 className="underground-gradient-text text-3xl font-bold tracking-tighter sm:text-4xl">Stack Technologique</h2>
             <p className="text-muted-foreground md:text-lg max-w-[800px]">
               Des technologies modernes pour des applications performantes et évolutives
             </p>
           </div>
+          <div className="vu-meter mx-auto w-1/2 max-w-[300px] mt-4" style={{ "--level": "70%" } as React.CSSProperties}></div>
         </motion.div>
         
         <motion.div 
@@ -151,31 +154,31 @@ export function TechnicalSkills() {
           {categories.map((category, index) => (
             <motion.div 
               key={category.title}
-              className="flex flex-col h-full overflow-hidden rounded-xl border bg-background p-5 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="industrial-container flex flex-col h-full p-5"
               variants={itemVariants}
             >
               <div className="flex items-center gap-3 mb-4">
                 <motion.div 
-                  className="rounded-full bg-primary/10 p-3"
+                  className="industrial-border p-3"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   {category.icon}
                 </motion.div>
-                <h3 className="text-xl font-bold">{category.title}</h3>
+                <h3 className="underground-text text-xl">{category.title}</h3>
               </div>
               
               <ul className="space-y-3 w-full flex-grow">
-                {category.skills.map((skill, _) => (
+                {category.skills.map((skill, idx) => (
                   <motion.li
                     key={skill.name}
                     className="relative"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.2 + _ * 0.1 }}
+                    transition={{ delay: 0.2 + idx * 0.1 }}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="flex items-center text-sm">
+                      <span className="flex items-center text-sm font-mono">
                         <span className="mr-2 text-primary">{getSkillIcon(skill.name)}</span>
                         {skill.name}
                       </span>
@@ -183,7 +186,7 @@ export function TechnicalSkills() {
                         {[...Array(5)].map((_, i) => (
                           <motion.span 
                             key={i} 
-                            className={`h-1.5 w-1.5 rounded-full mx-0.5 ${i < skill.level ? 'bg-primary' : 'bg-muted'}`}
+                            className={`h-1.5 w-1.5 rounded-sm mx-0.5 ${i < skill.level ? 'bg-primary' : 'bg-muted'}`}
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ delay: 0.5 + index * 0.1 + i * 0.05 }}
@@ -193,13 +196,13 @@ export function TechnicalSkills() {
                     </div>
                     
                     <motion.div 
-                      className="mt-1 h-1 w-full bg-muted rounded-full overflow-hidden"
+                      className="mt-1 h-1 w-full bg-muted rounded-sm overflow-hidden"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.3 + index * 0.1 }}
                     >
                       <motion.div 
-                        className="h-full bg-primary rounded-full"
+                        className="h-full bg-primary rounded-sm"
                         initial={{ width: 0 }}
                         animate={{ width: `${skill.level * 20}%` }}
                         transition={{ 
@@ -216,16 +219,20 @@ export function TechnicalSkills() {
           ))}
         </motion.div>
         
-        {/* Ajout du Commit Graph */}
+        {/* Ajout du Commit Graph avec style underground */}
         <motion.div
-          className="mt-12 max-w-7xl mx-auto"
+          className="mt-12 max-w-7xl mx-auto underground-card p-6 rounded-sm"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
+          <div className="mb-4">
+            <h3 className="underground-text text-lg mb-1">CONTRIBUTIONS OPEN SOURCE</h3>
+            <p className="text-sm text-muted-foreground">Représentation visuelle de mon activité de développement</p>
+          </div>
           <CommitGraph 
-            title="Contributions Open Source"
-            subtitle="Représentation visuelle de mon activité de développement et contributions sur GitHub"
+            title=""
+            subtitle=""
           />
         </motion.div>
       </div>

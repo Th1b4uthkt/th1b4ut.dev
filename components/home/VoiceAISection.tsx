@@ -49,7 +49,7 @@ export function VoiceAISection() {
     { icon: <BsShieldCheck />, label: "Sécurité Enterprise" }
   ];
 
-  // Animation variants from your existing code
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -71,14 +71,15 @@ export function VoiceAISection() {
   };
 
   return (
-    <section className="w-full py-10 md:py-16 lg:py-20 bg-muted/20 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-grid-small-black/[0.02] -z-10" />
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-background to-transparent -z-10" />
-      <div className="absolute -top-10 right-1/3 w-72 h-72 bg-primary/3 rounded-full blur-3xl opacity-70 -z-10" />
+    <section className="w-full py-10 md:py-16 lg:py-20 relative overflow-hidden">
+      {/* Background elements avec style underground */}
+      <div className="absolute inset-0 bg-grid-small-black/[0.05] -z-10" />
+      <div className="absolute inset-0 digital-noise -z-10" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
       <div className="container px-4 md:px-6 mx-auto">
-        {/* Header Section */}
+        {/* Header Section avec style underground */}
         <motion.div 
           className="flex flex-col items-center justify-center space-y-3 text-center max-w-3xl mx-auto mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -86,26 +87,28 @@ export function VoiceAISection() {
           transition={{ duration: 0.5 }}
         >
           <motion.div 
-            className="inline-flex items-center justify-center rounded-full bg-muted p-1"
+            className="inline-block industrial-border px-4 py-1 mb-2"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="rounded-full px-4 py-1 text-sm font-medium bg-primary/10 text-primary flex items-center gap-2">
+            <span className="underground-text text-sm flex items-center gap-2">
               <FaMicrophone className="h-4 w-4" />
-              Voice AI Solutions
+              VOICE AI SOLUTIONS
             </span>
           </motion.div>
           
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-              Transformez votre communication client avec l IA vocale
+            <h2 className="underground-gradient-text text-3xl font-bold tracking-tighter sm:text-4xl">
+              Transformez votre communication client avec l'IA vocale
             </h2>
             <p className="text-muted-foreground md:text-lg">
-              Des solutions vocales intelligentes qui révolutionnent l engagement client et optimisent vos opérations
+              Des solutions vocales intelligentes qui révolutionnent l'engagement client
             </p>
           </div>
+          
+          <div className="vu-meter mx-auto w-1/2 max-w-[300px] mt-4" style={{ "--level": "75%" } as React.CSSProperties}></div>
         </motion.div>
 
-        {/* Main Features Grid */}
+        {/* Main Features Grid avec style underground */}
         <motion.div 
           ref={ref}
           className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto"
@@ -116,19 +119,19 @@ export function VoiceAISection() {
           {voiceFeatures.map((feature, index) => (
             <motion.div 
               key={feature.title}
-              className="flex flex-col h-full rounded-xl border border-primary/10 bg-background p-5 md:p-6"
+              className="industrial-container flex flex-col h-full p-5 md:p-6"
               variants={itemVariants}
-              whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
+              whileHover={{ y: -5 }}
               transition={{ delay: 0.1 * index }}
             >
               <div className="flex items-center gap-3 mb-3">
                 <motion.div
-                  className="rounded-full p-2 bg-primary/10 flex-shrink-0"
+                  className="rounded-sm p-2 bg-primary/10 flex-shrink-0"
                   whileHover={{ rotate: 5, scale: 1.1 }}
                 >
                   {feature.icon}
                 </motion.div>
-                <h3 className="text-lg font-bold">{feature.title}</h3>
+                <h3 className="underground-text text-lg">{feature.title}</h3>
               </div>
               
               <p className="text-muted-foreground text-sm flex-grow mb-4">
@@ -136,7 +139,7 @@ export function VoiceAISection() {
               </p>
               
               <div className="mt-auto pt-4 border-t border-primary/10">
-                <p className="text-primary font-semibold text-sm">
+                <p className="terminal-underground text-sm">
                   {feature.metrics}
                 </p>
               </div>
@@ -144,22 +147,22 @@ export function VoiceAISection() {
           ))}
         </motion.div>
 
-        {/* Tech Benefits Section */}
+        {/* Tech Benefits Section avec style underground */}
         <motion.div 
-          className="mt-12 bg-background rounded-xl border border-primary/10 p-6 shadow-lg max-w-4xl mx-auto"
+          className="mt-12 underground-card p-6 max-w-4xl mx-auto"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.5 }}
         >
           <div className="text-center mb-6">
-            <span className="text-primary font-medium">Technologies de pointe pour une expérience vocale exceptionnelle</span>
+            <span className="underground-text text-sm">TECHNOLOGIES DE POINTE</span>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {techBenefits.map((benefit, idx) => (
               <motion.div 
                 key={idx}
-                className="flex flex-col items-center p-4 rounded-lg bg-muted/10"
+                className="flex flex-col items-center p-4 industrial-border"
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ delay: 0.7 + idx * 0.1 }}
@@ -168,27 +171,27 @@ export function VoiceAISection() {
                 <div className="text-primary text-xl mb-2">
                   {benefit.icon}
                 </div>
-                <span className="text-sm font-medium">{benefit.label}</span>
+                <span className="text-sm font-mono">{benefit.label}</span>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Call to Action */}
+        {/* Call to Action avec style underground */}
         <motion.div 
           className="mt-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.8 }}
         >
-          <motion.div
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow-lg hover:bg-primary/90 transition-colors"
+          <motion.button
+            className="underground-button px-6 py-3 rounded-sm flex items-center gap-2 mx-auto"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <FaMicrophone className="h-5 w-5" />
-            <span>Découvrir nos solutions vocales</span>
-          </motion.div>
+            <span className="uppercase tracking-wider">Découvrir nos solutions</span>
+          </motion.button>
         </motion.div>
       </div>
     </section>

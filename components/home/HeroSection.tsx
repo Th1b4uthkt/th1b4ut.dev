@@ -42,7 +42,7 @@ export function HeroSection() {
     ]
   };
 
-  // Animation variants optimisés pour plus de fluidité
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -67,59 +67,27 @@ export function HeroSection() {
   const categoryProjects = getProjectsByCategory(activeTab);
 
   return (
-    <section className="w-full py-6 md:py-12 lg:py-20 xl:py-24 bg-background relative overflow-hidden">
-      {/* Background decoration futuriste avec effet glassmorphism 2025 */}
-      <div className="absolute inset-0 bg-grid-small-black/[0.03] -z-10" />
+    <section className="w-full py-6 md:py-12 lg:py-20 xl:py-24 relative overflow-hidden">
+      {/* Background decoration avec style underground */}
+      <div className="absolute inset-0 bg-grid-small-black/[0.05] -z-10" />
+      <div className="absolute inset-0 vinyl-texture -z-10" />
+      <div className="absolute inset-0 digital-noise -z-10 opacity-20" />
       
-      {/* Gradient radial background with enhanced colors */}
-      <div className="absolute inset-0 bg-gradient-radial from-accent/10 via-transparent to-primary/5 opacity-80 -z-10" />
-      
-      {/* Animated 3D-like elements in background - 2025 trend */}
-      <motion.div 
-        className="absolute top-32 right-10 w-64 h-64 rounded-full bg-primary/10 blur-3xl -z-10"
-        animate={{ 
-          scale: [1, 1.1, 1.05, 1],
-          opacity: [0.3, 0.5, 0.4, 0.3],
-          rotateZ: [0, 15, 0, -15, 0]
-        }}
-        transition={{ 
-          duration: 8,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-      />
-      
-      <motion.div 
-        className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-secondary/10 blur-3xl -z-10"
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.4, 0.2],
-          rotateZ: [0, -15, 0, 15, 0]
-        }}
-        transition={{ 
-          duration: 10,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-      />
-      
-      {/* Neuomorphic grid lines - 2025 trend */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      {/* Séparateurs horizontaux style underground */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
       <div className="container px-4 md:px-6 mx-auto">
-        {/* Make the lamp container much smaller on mobile */}
-        <LampContainer 
-          className="relative min-h-0 h-auto w-full bg-transparent overflow-visible py-4 md:py-10 mb-4 md:mb-10"
-        >
+        {/* Hero header avec LampContainer et style underground */}
+        <LampContainer className="relative min-h-0 h-auto w-full bg-transparent overflow-visible py-4 md:py-10 mb-4 md:mb-10">
           <div className="text-center">
             <motion.h1 
-              className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-5xl lg:text-6xl/none bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent"
+              className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-5xl lg:text-6xl/none underground-gradient-text"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Thibaut | <span className="text-primary">Full-Stack</span> Developer
+              Thibaut | <span className="text-primary">Full Stack</span> Developer
             </motion.h1>
             <p className="max-w-[600px] text-muted-foreground text-sm md:text-xl mx-auto mt-1 md:mt-4">
               Expert en <span className="text-primary font-semibold">Web</span>, 
@@ -127,34 +95,37 @@ export function HeroSection() {
               <span className="text-secondary font-semibold"> IA</span> – Solutions sur mesure
             </p>
             
-            {/* Only show badge on larger screens */}
+            {/* Badge avec style underground */}
             <motion.div
               className="pt-1 md:pt-4 hidden sm:block"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              <Badge variant="outline" className="border-primary/30 text-xs sm:text-sm shadow-glow backdrop-blur-sm">
-                +5 ans d&apos;expérience en développement multi-plateforme
-              </Badge>
+              <div className="industrial-border inline-block px-4 py-1">
+                <span className="underground-text text-xs sm:text-sm">+5 ans d&apos;expérience en développement multi-plateforme</span>
+              </div>
             </motion.div>
           </div>
         </LampContainer>
 
-        {/* Make sure the buttons section has proper z-index and positioning */}
+        {/* VU-mètre animé */}
+        <div className="vu-meter mx-auto w-1/2 max-w-[300px] mb-8" style={{ "--level": "85%" } as React.CSSProperties}></div>
+
+        {/* Contenu principal avec style underground */}
         <motion.div 
           className="flex flex-col lg:flex-row lg:items-center lg:gap-12 max-w-6xl mx-auto relative z-10"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Left column for text - improved spacing for mobile */}
+          {/* Colonne gauche pour le texte */}
           <motion.div 
             className="flex flex-col justify-center space-y-3 lg:space-y-8 flex-shrink-0 lg:w-[55%] pb-6 lg:pb-0"
             variants={itemVariants}
           >
             <motion.div className="space-y-2" variants={itemVariants}>
-              {/* Category tabs - centered on mobile */}
+              {/* Onglets de catégorie avec style underground */}
               <motion.div 
                 className="flex justify-center sm:justify-start gap-2 pt-0 sm:pt-2"
                 variants={itemVariants}
@@ -186,32 +157,28 @@ export function HeroSection() {
               </motion.div>
             </motion.div>
             
-            {/* Dynamic typing animation - now visible on all screen sizes */}
+            {/* Animation de frappe avec style terminal underground */}
             <motion.div 
               className="pt-4 block" 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <div className="font-mono text-xs sm:text-sm text-muted-foreground typing-text-container">
-                <span className="mr-2 text-secondary">&gt;</span>
-                <div className="typing-effect">
-                  <TypeAnimation
-                    key={activeTab} // Force re-render when tab changes
-                    sequence={typingSequences[activeTab]}
-                    wrapper="span"
-                    speed={50}
-                    style={{ display: 'inline-block' }}
-                    repeat={Infinity}
-                    cursor={false} // Disable built-in cursor since we're using CSS
-                    className="typing-text"
-                  />
-                </div>
+              <div className="terminal-underground text-xs sm:text-sm">
+                <TypeAnimation
+                  key={activeTab}
+                  sequence={typingSequences[activeTab]}
+                  wrapper="span"
+                  speed={50}
+                  style={{ display: 'inline-block' }}
+                  repeat={Infinity}
+                  cursor={false}
+                />
               </div>
             </motion.div>
           </motion.div>
           
-          {/* Right column for interactive card - 2025 trend for dynamic content */}
+          {/* Colonne droite pour la carte interactive */}
           <motion.div 
             className="flex items-center justify-center lg:justify-end w-full lg:w-[45%]"
             variants={itemVariants}
@@ -220,9 +187,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-full aspect-square lg:aspect-auto lg:h-[450px]">
-              {/* Enhanced glassmorphism effect - 2025 trend */}
+              {/* Effet de lueur avec style underground */}
               <motion.div 
-                className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/30 via-accent/20 to-secondary/30 blur-2xl opacity-30"
+                className="absolute inset-0 rounded-sm bg-gradient-to-r from-primary/20 via-accent/10 to-secondary/20 blur-2xl opacity-30"
                 animate={{ 
                   scale: [1, 1.05, 1],
                   opacity: [0.3, 0.4, 0.3],
@@ -236,28 +203,28 @@ export function HeroSection() {
               />
               
               <motion.div 
-                className="relative bg-background/70 backdrop-blur-xl border border-border/50 rounded-xl shadow-lg p-6 h-full w-full flex items-center justify-center animate-glow-pulse"
+                className="underground-card relative rounded-sm h-full w-full flex items-center justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                whileHover={{ y: -5 }}
               >
                 <div className="space-y-5 text-center">
-                  {/* Dynamic tech stack based on selected category */}
+                  {/* Stack technologique dynamique basé sur la catégorie sélectionnée */}
                   <motion.div 
                     className="grid grid-cols-2 sm:grid-cols-3 gap-2"
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    key={activeTab} // Force re-render animation when tab changes
+                    transition={{ delay: 0.6 }}
                   >
                     {techStacks[activeTab].map((tech: string, index: number) => (
                       <motion.div
                         key={tech}
+                        className="industrial-border p-3 flex flex-col items-center justify-center gap-2"
+                        whileHover={{ scale: 1.1, y: -3 }}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8 + index * 0.1 }}
-                        whileHover={{ scale: 1.1, y: -3 }}
                       >
                         <Badge variant="outline" className="justify-center shadow-sm hover:shadow border-primary/20 hover:border-primary transition-all hover:bg-primary/5 backdrop-blur-sm">
                           {tech}
@@ -266,39 +233,29 @@ export function HeroSection() {
                     ))}
                   </motion.div>
                   
-                  {/* Featured projects based on selected category */}
-                  <motion.div 
-                    className="font-mono text-sm space-y-3"
+                  {/* Projets avec style underground */}
+                  <motion.div
+                    className="space-y-2 mt-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 1.2 }}
-                    key={`projects-${activeTab}`} // Force re-render animation when tab changes
+                    transition={{ delay: 0.8 }}
                   >
-                    {categoryProjects.slice(0, 3).map((project, index) => (
-                      <motion.div 
-                        key={project.id}
-                        className="flex items-center text-primary hover:text-primary/90 transition-colors"
-                        whileHover={{ x: 5 }}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.2 + index * 0.1 }}
-                      >
-                        {activeTab === "web" && <FaReact className="mr-2" />}
-                        {activeTab === "mobile" && <FaMobileAlt className="mr-2" />}
-                        {activeTab === "java" && <FaJava className="mr-2" />}
-                        <p># {project.title} <span className="text-xs text-muted-foreground">({project.tech})</span></p>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-
-                  {/* Enhanced 3D-like animated element - 2025 trend */}
-                  <motion.div 
-                    className="absolute -bottom-3 -right-3 w-16 h-16 flex items-center justify-center"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  >
-                    <div className="w-full h-full rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center">
-                      <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+                    <h3 className="underground-text text-sm">PROJETS RÉCENTS</h3>
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {categoryProjects.slice(0, 3).map((project, idx) => (
+                        <motion.div
+                          key={project.id}
+                          className="industrial-border px-2 py-1"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.9 + idx * 0.1 }}
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <span className="text-xs font-mono">
+                            {project.title}
+                          </span>
+                        </motion.div>
+                      ))}
                     </div>
                   </motion.div>
                 </div>

@@ -34,8 +34,13 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
   
   if (projects.length === 0) {
     return (
-      <div className="text-center py-8 sm:py-12">
-        <p className="text-muted-foreground">Aucun projet ne correspond à vos critères de recherche.</p>
+      <div className="text-center py-8 sm:py-12 industrial-container p-6">
+        <div className="inline-block industrial-border px-4 py-1 mb-4">
+          <span className="underground-text text-sm">AUCUN RÉSULTAT</span>
+        </div>
+        <p className="text-muted-foreground font-mono">
+          Aucun projet ne correspond à vos critères de recherche.
+        </p>
       </div>
     );
   }

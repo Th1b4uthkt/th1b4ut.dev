@@ -14,10 +14,15 @@ interface EducationSectionProps {
 
 export function EducationSection({ title, subtitle, items }: EducationSectionProps) {
   return (
-    <div className="rounded-lg border bg-card p-8 mb-16 backdrop-blur-sm">
+    <div className="industrial-container p-8 mb-16">
       <div className="flex flex-col items-center space-y-4 text-center mb-8">
-        <h2 className="text-3xl font-bold tracking-tighter">{title}</h2>
-        <p className="max-w-[700px] text-muted-foreground md:text-lg">
+        <div className="inline-block industrial-border px-4 py-1 mb-2">
+          <span className="underground-text text-sm">FORMATION</span>
+        </div>
+        
+        <h2 className="text-3xl font-bold tracking-tighter underground-gradient-text">{title}</h2>
+        
+        <p className="max-w-[700px] text-muted-foreground md:text-lg font-mono">
           {subtitle}
         </p>
       </div>
@@ -35,13 +40,13 @@ function EducationItem({ item }: { item: EducationItem }) {
   const IconComponent = Icons[item.icon as keyof typeof Icons];
 
   return (
-    <div className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors duration-200">
-      <div className="bg-primary/10 p-2 rounded-full">
+    <div className="flex items-center gap-4 p-3 rounded-sm hover:bg-primary/5 transition-colors duration-200 border-l border-primary/20 pl-4">
+      <div className="industrial-border p-2">
         <IconComponent className="h-5 w-5 text-primary" />
       </div>
       <div className="flex-1">
-        <h3 className="font-bold">{item.title}</h3>
-        <p className="text-muted-foreground">
+        <h3 className="font-bold underground-text">{item.title}</h3>
+        <p className="text-muted-foreground font-mono">
           {item.description}
         </p>
       </div>

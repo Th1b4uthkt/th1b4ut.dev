@@ -10,80 +10,109 @@
 }
 
 :root {
-  --background: oklch(0.98 0.01 240);
-  --foreground: oklch(0.2 0.05 260);
-  --card: oklch(0.98 0.01 240);
-  --card-foreground: oklch(0.2 0.05 260);
-  --popover: oklch(0.98 0.01 240);
-  --popover-foreground: oklch(0.2 0.05 260);
-  --primary: oklch(0.45 0.27 265); /* Violet futuriste */
-  --primary-rgb: 124, 58, 237; /* Valeur RGB approximative pour le violet */
-  --primary-foreground: oklch(0.98 0.01 240);
-  --secondary: oklch(0.65 0.18 200); /* Bleu électrique */
-  --secondary-rgb: 56, 189, 248; /* Valeur RGB approximative pour le bleu électrique */
-  --secondary-foreground: oklch(0.98 0.01 240);
-  --muted: oklch(0.96 0.02 230);
-  --muted-foreground: oklch(0.50 0.08 260);
-  --accent: oklch(0.6 0.24 180); /* Cyan */
-  --accent-rgb: 34, 211, 238; /* Valeur RGB approximative pour le cyan */
-  --accent-foreground: oklch(0.98 0.01 240);
-  --destructive: oklch(0.6 0.28 30);
-  --destructive-foreground: oklch(0.98 0.01 240);
-  --border: oklch(0.85 0.05 240);
-  --input: oklch(0.85 0.05 240);
-  --ring: oklch(0.75 0.12 260);
-  --chart-1: oklch(0.55 0.25 265); /* Violet */
-  --chart-2: oklch(0.65 0.18 200); /* Bleu électrique */
-  --chart-3: oklch(0.6 0.24 180); /* Cyan */
-  --chart-4: oklch(0.65 0.25 160); /* Teal */
-  --chart-5: oklch(0.7 0.22 140); /* Vert néon */
-  --radius: 0.625rem;
-  --sidebar: oklch(0.98 0.01 240);
-  --sidebar-foreground: oklch(0.2 0.05 260);
-  --sidebar-primary: oklch(0.45 0.27 265);
-  --sidebar-primary-foreground: oklch(0.98 0.01 240);
-  --sidebar-accent: oklch(0.6 0.24 180);
-  --sidebar-accent-foreground: oklch(0.98 0.01 240);
-  --sidebar-border: oklch(0.85 0.05 240);
-  --sidebar-ring: oklch(0.75 0.12 260);
+  /* Thème clair underground - plus sombre et plus contrasté */
+  --background: oklch(0.10 0.02 240); /* Presque noir avec une légère teinte bleue */
+  --foreground: oklch(0.85 0.02 240); /* Gris très clair */
+  --card: oklch(0.12 0.02 240); /* Légèrement plus clair que le fond */
+  --card-foreground: oklch(0.85 0.02 240);
+  --popover: oklch(0.12 0.02 240);
+  --popover-foreground: oklch(0.85 0.02 240);
+  
+  /* Rouge sang pour le thème principal - plus profond et moins néon */
+  --primary: oklch(0.45 0.26 25); /* Rouge sang profond */
+  --primary-rgb: 180, 20, 20; /* Valeur RGB pour le rouge sang */
+  --primary-foreground: oklch(0.90 0.01 240);
+  
+  /* Vert acide pour les accents - rappelle les VU-mètres et les écrans de studio */
+  --secondary: oklch(0.70 0.20 130); /* Vert acide */
+  --secondary-rgb: 100, 220, 40; /* Valeur RGB pour le vert acide */
+  --secondary-foreground: oklch(0.10 0.01 260);
+  
+  /* Violet profond pour les accents secondaires - rappelle les éclairages de club */
+  --accent: oklch(0.40 0.22 300); /* Violet profond */
+  --accent-rgb: 100, 20, 180; /* Valeur RGB pour le violet */
+  --accent-foreground: oklch(0.90 0.01 240);
+  
+  --muted: oklch(0.15 0.02 240);
+  --muted-foreground: oklch(0.60 0.05 240);
+  
+  --destructive: oklch(0.50 0.28 30);
+  --destructive-foreground: oklch(0.90 0.01 240);
+  
+  --border: oklch(0.20 0.05 240);
+  --input: oklch(0.20 0.05 240);
+  --ring: oklch(0.45 0.26 25); /* Rouge sang pour le ring */
+  
+  /* Couleurs pour les graphiques */
+  --chart-1: oklch(0.45 0.26 25); /* Rouge sang */
+  --chart-2: oklch(0.70 0.20 130); /* Vert acide */
+  --chart-3: oklch(0.40 0.22 300); /* Violet profond */
+  --chart-4: oklch(0.60 0.20 200); /* Bleu électrique */
+  --chart-5: oklch(0.55 0.25 50); /* Orange brûlé */
+  
+  --radius: 0.125rem; /* Bordures très angulaires pour un look industriel */
+  
+  /* Sidebar */
+  --sidebar: oklch(0.08 0.02 240); /* Encore plus sombre que le fond */
+  --sidebar-foreground: oklch(0.85 0.02 240);
+  --sidebar-primary: oklch(0.45 0.26 25); /* Rouge sang */
+  --sidebar-primary-foreground: oklch(0.90 0.01 240);
+  --sidebar-accent: oklch(0.70 0.20 130); /* Vert acide */
+  --sidebar-accent-foreground: oklch(0.10 0.01 260);
+  --sidebar-border: oklch(0.20 0.05 240);
+  --sidebar-ring: oklch(0.45 0.26 25); /* Rouge sang */
 }
 
 .dark {
-  --background: oklch(0.12 0.05 260);
-  --foreground: oklch(0.95 0.02 240);
-  --card: oklch(0.15 0.05 260);
-  --card-foreground: oklch(0.95 0.02 240);
-  --popover: oklch(0.12 0.05 260);
-  --popover-foreground: oklch(0.95 0.02 240);
-  --primary: oklch(0.6 0.27 265); /* Violet futuriste */
-  --primary-rgb: 147, 51, 234; /* Valeur RGB approximative pour le violet plus lumineux */
-  --primary-foreground: oklch(0.1 0.01 260);
-  --secondary: oklch(0.25 0.05 220);
-  --secondary-rgb: 59, 130, 246; /* Valeur RGB approximative pour le bleu */
-  --secondary-foreground: oklch(0.95 0.02 240);
-  --muted: oklch(0.18 0.05 255);
-  --muted-foreground: oklch(0.7 0.08 250);
-  --accent: oklch(0.7 0.24 180); /* Cyan */
-  --accent-rgb: 45, 212, 191; /* Valeur RGB approximative pour le cyan */
-  --accent-foreground: oklch(0.1 0.01 260);
-  --destructive: oklch(0.6 0.28 30);
-  --destructive-foreground: oklch(0.95 0.02 240);
-  --border: oklch(0.25 0.08 265);
-  --input: oklch(0.25 0.08 265);
-  --ring: oklch(0.5 0.15 265);
-  --chart-1: oklch(0.6 0.27 265); /* Violet */
-  --chart-2: oklch(0.7 0.24 180); /* Cyan */
-  --chart-3: oklch(0.7 0.22 140); /* Vert néon */
-  --chart-4: oklch(0.65 0.28 30); /* Orange néon */
-  --chart-5: oklch(0.65 0.25 350); /* Rose */
-  --sidebar: oklch(0.15 0.05 260);
-  --sidebar-foreground: oklch(0.95 0.02 240);
-  --sidebar-primary: oklch(0.6 0.27 265);
-  --sidebar-primary-foreground: oklch(0.1 0.01 260);
-  --sidebar-accent: oklch(0.7 0.24 180);
-  --sidebar-accent-foreground: oklch(0.1 0.01 260);
-  --sidebar-border: oklch(0.25 0.08 265);
-  --sidebar-ring: oklch(0.5 0.15 265);
+  /* Thème sombre underground - encore plus sombre et plus intense */
+  --background: oklch(0.05 0.02 240); /* Noir profond avec une légère teinte bleue */
+  --foreground: oklch(0.80 0.02 240); /* Gris clair */
+  --card: oklch(0.08 0.02 240); /* Légèrement plus clair que le fond */
+  --card-foreground: oklch(0.80 0.02 240);
+  --popover: oklch(0.05 0.02 240);
+  --popover-foreground: oklch(0.80 0.02 240);
+  
+  /* Rouge sang plus intense pour le thème sombre */
+  --primary: oklch(0.50 0.28 25); /* Rouge sang plus lumineux */
+  --primary-rgb: 200, 30, 30; /* Valeur RGB pour le rouge sang plus lumineux */
+  --primary-foreground: oklch(0.05 0.01 260);
+  
+  /* Vert acide plus intense */
+  --secondary: oklch(0.75 0.22 130); /* Vert acide plus lumineux */
+  --secondary-rgb: 120, 255, 50; /* Valeur RGB pour le vert acide plus lumineux */
+  --secondary-foreground: oklch(0.05 0.01 260);
+  
+  /* Violet plus intense */
+  --accent: oklch(0.45 0.24 300); /* Violet plus lumineux */
+  --accent-rgb: 120, 30, 220; /* Valeur RGB pour le violet plus lumineux */
+  --accent-foreground: oklch(0.05 0.01 260);
+  
+  --muted: oklch(0.10 0.02 240);
+  --muted-foreground: oklch(0.55 0.05 240);
+  
+  --destructive: oklch(0.55 0.28 30);
+  --destructive-foreground: oklch(0.90 0.01 240);
+  
+  --border: oklch(0.15 0.05 240);
+  --input: oklch(0.15 0.05 240);
+  --ring: oklch(0.50 0.28 25); /* Rouge sang pour le ring */
+  
+  /* Couleurs pour les graphiques */
+  --chart-1: oklch(0.50 0.28 25); /* Rouge sang */
+  --chart-2: oklch(0.75 0.22 130); /* Vert acide */
+  --chart-3: oklch(0.45 0.24 300); /* Violet */
+  --chart-4: oklch(0.65 0.22 200); /* Bleu électrique */
+  --chart-5: oklch(0.60 0.27 50); /* Orange brûlé */
+  
+  /* Sidebar */
+  --sidebar: oklch(0.03 0.02 240); /* Encore plus sombre que le fond */
+  --sidebar-foreground: oklch(0.80 0.02 240);
+  --sidebar-primary: oklch(0.50 0.28 25); /* Rouge sang */
+  --sidebar-primary-foreground: oklch(0.05 0.01 260);
+  --sidebar-accent: oklch(0.75 0.22 130); /* Vert acide */
+  --sidebar-accent-foreground: oklch(0.05 0.01 260);
+  --sidebar-border: oklch(0.15 0.05 240);
+  --sidebar-ring: oklch(0.50 0.28 25); /* Rouge sang */
 }
 
 @theme inline {
@@ -286,4 +315,939 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Ajout d'effets cyberpunk */
+.neon-text {
+  text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.7), 
+               0 0 10px rgba(var(--primary-rgb), 0.5), 
+               0 0 15px rgba(var(--primary-rgb), 0.3);
+}
+
+.neon-text-strong {
+  text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.8), 
+               0 0 10px rgba(var(--primary-rgb), 0.6), 
+               0 0 15px rgba(var(--primary-rgb), 0.4),
+               0 0 20px rgba(var(--primary-rgb), 0.2);
+}
+
+.matrix-text {
+  text-shadow: 0 0 5px rgba(var(--secondary-rgb), 0.7), 
+               0 0 10px rgba(var(--secondary-rgb), 0.5), 
+               0 0 15px rgba(var(--secondary-rgb), 0.3);
+  font-family: var(--font-mono);
+}
+
+.cyber-border {
+  position: relative;
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+}
+
+.cyber-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid rgba(var(--primary-rgb), 0.6);
+  z-index: -1;
+}
+
+.cyber-border::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  z-index: -2;
+}
+
+.glitch-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch-effect::before {
+  left: 2px;
+  text-shadow: -1px 0 rgba(var(--primary-rgb), 0.7);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+  left: -2px;
+  text-shadow: 1px 0 rgba(var(--secondary-rgb), 0.7);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% {
+    clip: rect(2px, 9999px, 56px, 0);
+  }
+  10% {
+    clip: rect(120px, 9999px, 12px, 0);
+  }
+  20% {
+    clip: rect(76px, 9999px, 33px, 0);
+  }
+  30% {
+    clip: rect(15px, 9999px, 144px, 0);
+  }
+  40% {
+    clip: rect(100px, 9999px, 5px, 0);
+  }
+  50% {
+    clip: rect(46px, 9999px, 98px, 0);
+  }
+  60% {
+    clip: rect(23px, 9999px, 67px, 0);
+  }
+  70% {
+    clip: rect(89px, 9999px, 13px, 0);
+  }
+  80% {
+    clip: rect(32px, 9999px, 54px, 0);
+  }
+  90% {
+    clip: rect(67px, 9999px, 122px, 0);
+  }
+  100% {
+    clip: rect(10px, 9999px, 43px, 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(42px, 9999px, 5px, 0);
+  }
+  10% {
+    clip: rect(12px, 9999px, 76px, 0);
+  }
+  20% {
+    clip: rect(56px, 9999px, 33px, 0);
+  }
+  30% {
+    clip: rect(125px, 9999px, 14px, 0);
+  }
+  40% {
+    clip: rect(10px, 9999px, 85px, 0);
+  }
+  50% {
+    clip: rect(46px, 9999px, 58px, 0);
+  }
+  60% {
+    clip: rect(73px, 9999px, 37px, 0);
+  }
+  70% {
+    clip: rect(109px, 9999px, 13px, 0);
+  }
+  80% {
+    clip: rect(42px, 9999px, 84px, 0);
+  }
+  90% {
+    clip: rect(27px, 9999px, 122px, 0);
+  }
+  100% {
+    clip: rect(60px, 9999px, 33px, 0);
+  }
+}
+
+/* Effet de scanline pour un look rétro-futuriste */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.05) 0.5%,
+    transparent 1%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+.dark .scanline::before {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 0.5%,
+    transparent 1%
+  );
+}
+
+/* Effet de terminal Matrix */
+.matrix-rain {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-rain::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(var(--secondary-rgb), 0.05) 25%, 
+    rgba(var(--secondary-rgb), 0.02) 50%, 
+    rgba(var(--secondary-rgb), 0.01) 75%, 
+    transparent
+  );
+  animation: matrix-rain 2s linear infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Effet de bruit numérique */
+.digital-noise {
+  position: relative;
+}
+
+.digital-noise::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 5;
+}
+
+.dark .digital-noise::after {
+  opacity: 0.1;
+}
+
+/* Effet de grille cyberpunk */
+.cyber-grid {
+  position: relative;
+}
+
+.cyber-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(var(--primary-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--primary-rgb), 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .cyber-grid::before {
+  background-image: 
+    linear-gradient(to right, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--primary-rgb), 0.1) 1px, transparent 1px);
+}
+
+/* Effet de bordure angulaire cyberpunk */
+.cyber-box {
+  position: relative;
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  clip-path: polygon(
+    0 10px, 
+    10px 0, 
+    calc(100% - 10px) 0, 
+    100% 10px, 
+    100% calc(100% - 10px), 
+    calc(100% - 10px) 100%, 
+    10px 100%, 
+    0 calc(100% - 10px)
+  );
+}
+
+.cyber-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(var(--primary-rgb), 0.05);
+  z-index: -1;
+}
+
+/* Amélioration de la glass-card pour un look plus cyberpunk */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
+              0 0 10px rgba(var(--primary-rgb), 0.1);
+}
+
+/* Amélioration du gradient-bg pour un look plus cyberpunk */
+.gradient-bg {
+  background: linear-gradient(135deg, 
+    rgba(var(--primary-rgb), 0.1) 0%, 
+    rgba(var(--secondary-rgb), 0.1) 50%, 
+    rgba(var(--accent-rgb), 0.1) 100%
+  );
+}
+
+.dark .gradient-bg {
+  background: linear-gradient(135deg, 
+    rgba(var(--primary-rgb), 0.2) 0%, 
+    rgba(var(--secondary-rgb), 0.2) 50%, 
+    rgba(var(--accent-rgb), 0.2) 100%
+  );
+}
+
+/* Effet de texte dégradé amélioré */
+.text-gradient {
+  background: linear-gradient(90deg, 
+    rgba(var(--primary-rgb), 1) 0%, 
+    rgba(var(--secondary-rgb), 1) 50%, 
+    rgba(var(--accent-rgb), 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Effet de texte qui clignote comme un terminal */
+.terminal-text {
+  font-family: var(--font-mono);
+  color: rgba(var(--secondary-rgb), 1);
+  position: relative;
+}
+
+.terminal-text::after {
+  content: '|';
+  position: absolute;
+  right: -0.5em;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Effet de bouton cyberpunk */
+.cyber-button {
+  position: relative;
+  background: rgba(var(--primary-rgb), 0.1);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  color: rgba(var(--primary-rgb), 1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--primary-rgb), 0.2),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.cyber-button:hover {
+  background: rgba(var(--primary-rgb), 0.2);
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.3);
+}
+
+.dark .cyber-button {
+  background: rgba(var(--primary-rgb), 0.15);
+  border: 1px solid rgba(var(--primary-rgb), 0.4);
+}
+
+.dark .cyber-button:hover {
+  background: rgba(var(--primary-rgb), 0.25);
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.4);
+}
+
+/* Effets spécifiques pour le thème underground */
+
+/* Effet de texture grain pour simuler le vinyle ou le bruit analogique */
+.vinyl-texture {
+  position: relative;
+}
+
+.vinyl-texture::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: 5;
+  mix-blend-mode: overlay;
+}
+
+.dark .vinyl-texture::after {
+  opacity: 0.2;
+}
+
+/* Effet de distorsion VHS */
+.vhs-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.vhs-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    rgba(0, 0, 0, 0.05) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.3;
+}
+
+.dark .vhs-effect::before {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0.4;
+}
+
+/* Effet de VU-mètre */
+.vu-meter {
+  position: relative;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    rgba(var(--secondary-rgb), 0.8) 0%,
+    rgba(var(--secondary-rgb), 0.8) var(--level, 50%),
+    rgba(var(--secondary-rgb), 0.2) var(--level, 50%),
+    rgba(var(--secondary-rgb), 0.2) 85%,
+    rgba(var(--primary-rgb), 0.8) 85%,
+    rgba(var(--primary-rgb), 0.8) 100%
+  );
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.vu-meter::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+/* Effet de texte underground */
+.underground-text {
+  font-family: var(--font-mono);
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(var(--primary-rgb), 0.9);
+  text-shadow: 
+    0 0 1px rgba(0, 0, 0, 0.8),
+    0 0 3px rgba(var(--primary-rgb), 0.5);
+}
+
+.dark .underground-text {
+  text-shadow: 
+    0 0 1px rgba(0, 0, 0, 1),
+    0 0 4px rgba(var(--primary-rgb), 0.6);
+}
+
+/* Effet de texte glitch plus subtil et industriel */
+.industrial-glitch {
+  position: relative;
+  display: inline-block;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+
+.industrial-glitch::before,
+.industrial-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.industrial-glitch::before {
+  left: -1px;
+  text-shadow: -1px 0 rgba(var(--primary-rgb), 0.5);
+  animation: industrial-glitch-1 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.industrial-glitch::after {
+  left: 1px;
+  text-shadow: 1px 0 rgba(var(--secondary-rgb), 0.5);
+  animation: industrial-glitch-2 2.7s infinite linear alternate-reverse;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes industrial-glitch-1 {
+  0%, 95%, 100% {
+    transform: none;
+    opacity: 0.8;
+  }
+  96%, 99% {
+    transform: translateX(-2px);
+    opacity: 0.9;
+  }
+  97%, 98% {
+    transform: translateX(2px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes industrial-glitch-2 {
+  0%, 96%, 100% {
+    transform: none;
+    opacity: 0.8;
+  }
+  97%, 99% {
+    transform: translateX(-2px);
+    opacity: 0.9;
+  }
+  98% {
+    transform: translateX(2px);
+    opacity: 0.7;
+  }
+}
+
+/* Effet de bordure industrielle */
+.industrial-border {
+  position: relative;
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.industrial-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(var(--primary-rgb), 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.industrial-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(var(--primary-rgb), 0.5) 50%,
+    transparent 100%
+  );
+}
+
+/* Effet de carte style underground */
+.underground-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.underground-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(var(--primary-rgb), 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.dark .underground-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Effet de bouton underground */
+.underground-button {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  color: rgba(var(--primary-rgb), 0.9);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.underground-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--primary-rgb), 0.1),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+.underground-button:hover::before {
+  left: 100%;
+}
+
+.underground-button:hover {
+  background: rgba(var(--primary-rgb), 0.15);
+  box-shadow: 
+    0 0 5px rgba(var(--primary-rgb), 0.2),
+    inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark .underground-button {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(var(--primary-rgb), 0.4);
+}
+
+.dark .underground-button:hover {
+  background: rgba(var(--primary-rgb), 0.2);
+  box-shadow: 
+    0 0 8px rgba(var(--primary-rgb), 0.3),
+    inset 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Effet de fond avec motif de forme d'onde */
+.waveform-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.waveform-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='waveform' patternUnits='userSpaceOnUse' width='100' height='20' patternTransform='scale(1) rotate(0)'%3E%3Cpath d='M0 10 Q 12.5 5, 25 10 T 50 10 T 75 10 T 100 10' fill='none' stroke='%23ff0000' stroke-width='0.5' stroke-opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23waveform)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.dark .waveform-bg::before {
+  opacity: 0.08;
+}
+
+/* Effet de grille de studio */
+.studio-grid {
+  position: relative;
+}
+
+.studio-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(var(--primary-rgb), 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--primary-rgb), 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dark .studio-grid::before {
+  background-image: 
+    linear-gradient(to right, rgba(var(--primary-rgb), 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--primary-rgb), 0.05) 1px, transparent 1px);
+}
+
+/* Effet de texte avec dégradé underground */
+.underground-gradient-text {
+  background: linear-gradient(90deg, 
+    rgba(var(--primary-rgb), 1) 0%, 
+    rgba(var(--accent-rgb), 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Effet de conteneur avec bords angulaires style industriel */
+.industrial-container {
+  position: relative;
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  clip-path: polygon(
+    0 5px, 
+    5px 0, 
+    calc(100% - 5px) 0, 
+    100% 5px, 
+    100% calc(100% - 5px), 
+    calc(100% - 5px) 100%, 
+    5px 100%, 
+    0 calc(100% - 5px)
+  );
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.industrial-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(var(--primary-rgb), 0.03);
+  z-index: -1;
+}
+
+/* Effet de texte style terminal underground */
+.terminal-underground {
+  font-family: var(--font-mono);
+  color: rgba(var(--secondary-rgb), 0.9);
+  position: relative;
+  padding-left: 1em;
+}
+
+.terminal-underground::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: rgba(var(--primary-rgb), 0.9);
+}
+
+.terminal-underground::after {
+  content: '|';
+  position: absolute;
+  right: -0.5em;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Amélioration de la glass-card pour un look plus underground */
+.glass-card {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.dark .glass-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+              0 0 10px rgba(var(--primary-rgb), 0.1);
+}
+
+/* Amélioration du gradient-bg pour un look plus underground */
+.gradient-bg {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.9) 0%, 
+    rgba(var(--primary-rgb), 0.1) 100%
+  );
+}
+
+.dark .gradient-bg {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.95) 0%, 
+    rgba(var(--primary-rgb), 0.15) 100%
+  );
+}
+
+/* Effet de texte dégradé amélioré pour un look underground */
+.text-gradient {
+  background: linear-gradient(90deg, 
+    rgba(var(--primary-rgb), 1) 0%, 
+    rgba(var(--accent-rgb), 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Effet de bouton avec bruit statique */
+.static-button {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  color: rgba(var(--primary-rgb), 0.9);
+  overflow: hidden;
+}
+
+.static-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.static-button:hover::before {
+  opacity: 0.2;
+}
+
+/* Effet de texte avec ombre portée underground */
+.shadow-text {
+  text-shadow: 2px 2px 0px rgba(var(--primary-rgb), 0.3);
+  font-weight: 700;
+}
+
+.dark .shadow-text {
+  text-shadow: 2px 2px 0px rgba(var(--primary-rgb), 0.4);
+}
+
+/* Effet de barre de progression style underground */
+.progress-underground {
+  height: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-underground::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--progress, 50%);
+  background: linear-gradient(
+    to right,
+    rgba(var(--primary-rgb), 0.7),
+    rgba(var(--accent-rgb), 0.7)
+  );
+  border-radius: 2px;
+}
+
+.progress-underground::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: progress-shine 2s infinite linear;
+}
+
+@keyframes progress-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }

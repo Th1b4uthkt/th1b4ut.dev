@@ -23,9 +23,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="h-full"
     >
-      <Card className="h-full overflow-hidden group flex flex-col">
+      <div className="underground-card h-full overflow-hidden group flex flex-col rounded-sm vhs-effect">
         <div className="aspect-video overflow-hidden relative">
-          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10" />
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
           <div className="h-full w-full bg-muted flex items-center justify-center text-muted-foreground">
             {project.image ? (
               <Image 
@@ -37,44 +37,55 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 loading="lazy"
               />
             ) : (
-              <span>Image du Projet {project.id}</span>
+              <span className="font-mono">Image du Projet {project.id}</span>
             )}
           </div>
         </div>
         
-        <CardHeader className={`${isMobile ? 'p-4 pb-2' : 'p-6 pb-2'}`}>
+        <div className={`${isMobile ? 'p-4 pb-2' : 'p-6 pb-2'}`}>
           <div className="flex justify-between items-start flex-wrap gap-2">
-            <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-bold line-clamp-1`}>{project.title}</h3>
-            <Badge variant="outline" className="ml-auto shrink-0">{project.tech}</Badge>
+            <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-bold line-clamp-1 underground-text`}>
+              {project.title}
+            </h3>
+            <div className="industrial-border px-2 py-1 ml-auto shrink-0">
+              <span className="text-xs text-secondary font-mono">{project.tech}</span>
+            </div>
           </div>
-        </CardHeader>
+        </div>
         
-        <CardContent className={`${isMobile ? 'p-4 pt-2 pb-3' : 'p-6 pt-2 pb-4'} flex-grow`}>
-          <p className="text-muted-foreground text-sm sm:text-base mb-4 line-clamp-3">{project.description}</p>
+        <div className={`${isMobile ? 'p-4 pt-2 pb-3' : 'p-6 pt-2 pb-4'} flex-grow`}>
+          <p className="text-muted-foreground text-sm sm:text-base mb-4 line-clamp-3 font-mono">
+            {project.description}
+          </p>
           <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
             {project.tags.slice(0, isMobile ? 3 : 4).map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs">
-                {tag}
-              </Badge>
+              <div key={tag} className="industrial-border px-2 py-0.5">
+                <span className="text-xs text-muted-foreground font-mono">{tag}</span>
+              </div>
             ))}
             {project.tags.length > (isMobile ? 3 : 4) && (
-              <Badge variant="secondary" className="text-xs">
-                +{project.tags.length - (isMobile ? 3 : 4)}
-              </Badge>
+              <div className="industrial-border px-2 py-0.5">
+                <span className="text-xs text-muted-foreground font-mono">
+                  +{project.tags.length - (isMobile ? 3 : 4)}
+                </span>
+              </div>
             )}
           </div>
-        </CardContent>
+        </div>
         
-        <CardFooter className={`${isMobile ? 'p-4 pt-0' : 'p-6 pt-0'} flex justify-between items-center mt-auto`}>
-          <Button variant="outline" size={isMobile ? "sm" : "default"} asChild>
-            <Link href={`/projets/${project.id}`}>Voir détails</Link>
-          </Button>
+        <div className={`${isMobile ? 'p-4 pt-0' : 'p-6 pt-0'} flex justify-between items-center mt-auto border-t border-primary/10`}>
+          <Link 
+            href={`/projets/${project.id}`}
+            className="underground-button px-4 py-2 rounded-sm"
+          >
+            <span className="uppercase tracking-wider text-xs sm:text-sm">Voir détails</span>
+          </Link>
           <div className="flex space-x-2">
             <Link 
               href={project.githubUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="GitHub Repository"
             >
               <Github className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} />
@@ -83,14 +94,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.demoUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Live Demo"
             >
               <ExternalLink className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} />
             </Link>
           </div>
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </motion.div>
   );
 } 

@@ -5,7 +5,14 @@ export function ServicesList() {
   return (
     <div id="services" className="mb-12 md:mb-16">
       <div className="flex flex-col items-center space-y-4 text-center mb-6 md:mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tighter">Nos services</h2>
+        <div className="inline-block industrial-border px-4 py-1 mb-2">
+          <span className="underground-text text-sm">CATALOGUE</span>
+        </div>
+        
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tighter underground-gradient-text">
+          Nos services
+        </h2>
+        
         <p className="max-w-[700px] text-muted-foreground text-base md:text-lg">
           Des solutions adaptées à vos besoins spécifiques
         </p>

@@ -1,79 +1,46 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export function ServiceCTA() {
   return (
-    <div className="rounded-lg border bg-muted/50 p-4 md:p-8 text-center">
-      <h2 className="text-2xl md:text-3xl font-bold tracking-tighter mb-3 md:mb-4">Prêt à concrétiser votre projet?</h2>
+    <div className="underground-card p-8 text-center">
+      <div className="inline-block industrial-border px-4 py-1 mb-4">
+        <span className="underground-text text-sm">CONTACT</span>
+      </div>
+      
+      <h2 className="text-2xl md:text-3xl font-bold tracking-tighter mb-3 md:mb-4 underground-gradient-text">
+        Prêt à concrétiser votre projet?
+      </h2>
+      
       <p className="max-w-[700px] mx-auto text-muted-foreground text-sm md:text-lg mb-4 md:mb-6">
         Contactez-moi dès aujourd&apos;hui pour discuter de vos besoins et obtenir un devis personnalisé.
       </p>
       
-      {/* Ajout d'éléments de confiance */}
+      <div className="vu-meter mx-auto w-1/2 max-w-[300px] my-6" style={{ "--level": "75%" } as React.CSSProperties}></div>
+      
+      {/* Éléments de confiance avec style underground */}
       <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-6 md:mb-8">
         <div className="flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-4 w-4 md:h-5 md:w-5 text-primary mr-1 md:mr-2"
-          >
-            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-            <path d="m9 12 2 2 4-4" />
-          </svg>
-          <span className="text-sm md:text-base">Devis gratuit</span>
+          <span className="text-primary mr-2">›</span>
+          <span className="text-sm font-mono">Devis gratuit</span>
         </div>
         <div className="flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-4 w-4 md:h-5 md:w-5 text-primary mr-1 md:mr-2"
-          >
-            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-            <path d="m9 12 2 2 4-4" />
-          </svg>
-          <span className="text-sm md:text-base">Réponse sous 24h</span>
+          <span className="text-primary mr-2">›</span>
+          <span className="text-sm font-mono">Réponse sous 24h</span>
         </div>
         <div className="flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="h-4 w-4 md:h-5 md:w-5 text-primary mr-1 md:mr-2"
-          >
-            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-            <path d="m9 12 2 2 4-4" />
-          </svg>
-          <span className="text-sm md:text-base">Sans engagement</span>
+          <span className="text-primary mr-2">›</span>
+          <span className="text-sm font-mono">Sans engagement</span>
         </div>
       </div>
       
       <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-        <Button size="lg" className="w-full sm:w-auto" asChild>
-          <Link href="/contact">Demander un devis gratuit</Link>
-        </Button>
-        <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
-          <Link href="mailto:contact@th1b4ut.com">contact@th1b4ut.com</Link>
-        </Button>
+        <Link href="/contact" className="underground-button px-6 py-3 rounded-sm flex items-center justify-center">
+          <span className="uppercase tracking-wider text-sm">Demander un devis gratuit</span>
+        </Link>
+        
+        <Link href="mailto:contact@th1b4ut.com" className="industrial-border px-6 py-3 rounded-sm flex items-center justify-center">
+          <span className="terminal-underground text-sm">contact@th1b4ut.com</span>
+        </Link>
       </div>
     </div>
   );

@@ -14,7 +14,11 @@ interface PhilosophySectionProps {
 export function PhilosophySection({ title, values }: PhilosophySectionProps) {
   return (
     <div className="mb-16">
-      <h2 className="text-3xl font-bold mb-8 text-center">{title}</h2>
+      <div className="inline-block industrial-border px-4 py-1 mb-4">
+        <span className="underground-text text-sm">PHILOSOPHIE</span>
+      </div>
+      
+      <h2 className="text-3xl font-bold mb-8 text-center underground-gradient-text">{title}</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {values.map((value, index) => (
@@ -30,8 +34,8 @@ function PhilosophyCard({ item }: { item: PhilosophyItem }) {
   const IconComponent = Icons[item.icon as keyof typeof Icons];
   
   return (
-    <div className="rounded-lg border p-6 bg-card hover:shadow-md transition-shadow duration-300">
-      <div className="rounded-full bg-primary/10 p-3 w-12 h-12 flex items-center justify-center mb-4">
+    <div className="underground-card p-6 rounded-sm vhs-effect">
+      <div className="industrial-border p-3 w-12 h-12 flex items-center justify-center mb-4">
         {IconComponent ? (
           <IconComponent className="h-6 w-6 text-primary" />
         ) : (
@@ -39,8 +43,8 @@ function PhilosophyCard({ item }: { item: PhilosophyItem }) {
           <div className="h-6 w-6 text-primary flex items-center justify-center">•</div>
         )}
       </div>
-      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-      <p className="text-muted-foreground">
+      <h3 className="text-xl font-bold mb-2 underground-text">{item.title}</h3>
+      <p className="text-muted-foreground font-mono">
         {item.description}
       </p>
     </div>

@@ -39,61 +39,73 @@ export function MobileNav({
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild className="md:hidden">
-        <Button variant="outline" size="icon" className="fixed bottom-4 right-4 z-50 rounded-full shadow-lg">
-          <Menu className="h-5 w-5" />
+        <Button 
+          variant="outline" 
+          size="icon" 
+          className="fixed bottom-4 right-4 z-50 industrial-border bg-black/80 shadow-industrial"
+        >
+          <Menu className="h-5 w-5 text-primary" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="bottom" className="h-[80vh] rounded-t-xl">
+      <SheetContent side="bottom" className="h-[80vh] rounded-t-xl vinyl-texture studio-grid bg-black/90 border-t border-primary/30">
         <div className="py-6 space-y-6">
           <div>
-            <h3 className="text-lg font-semibold mb-3">Catégories</h3>
+            <div className="inline-block industrial-border px-4 py-1 mb-3">
+              <span className="underground-text text-sm">CATÉGORIES</span>
+            </div>
+            
             <div className="flex flex-wrap gap-2">
-              <Badge 
-                variant={selectedCategory === "all" ? "default" : "outline"}
-                className="py-1.5 px-3 cursor-pointer"
+              <div 
+                className={`industrial-border py-1.5 px-3 cursor-pointer ${selectedCategory === "all" ? "bg-primary/20" : "bg-transparent"}`}
                 onClick={() => handleCategoryChange("all")}
               >
-                Tous
-              </Badge>
+                <span className={`text-sm font-mono ${selectedCategory === "all" ? "text-primary" : "text-muted-foreground"}`}>
+                  Tous
+                </span>
+              </div>
+              
               {categories.map((category) => (
-                <Badge 
+                <div 
                   key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  className="py-1.5 px-3 cursor-pointer"
+                  className={`industrial-border py-1.5 px-3 cursor-pointer ${selectedCategory === category ? "bg-primary/20" : "bg-transparent"}`}
                   onClick={() => handleCategoryChange(category)}
                 >
-                  {category === "web" ? "Web" : 
-                   category === "mobile" ? "Mobile" : "Java"}
-                </Badge>
+                  <span className={`text-sm font-mono ${selectedCategory === category ? "text-primary" : "text-muted-foreground"}`}>
+                    {category === "web" ? "Web" : 
+                     category === "mobile" ? "Mobile" : "Java"}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-3">Technologies</h3>
+            <div className="inline-block industrial-border px-4 py-1 mb-3">
+              <span className="underground-text text-sm">TECHNOLOGIES</span>
+            </div>
+            
             <div className="flex flex-wrap gap-2">
               {technologies.map((tech) => (
-                <Badge 
+                <div 
                   key={tech}
-                  variant={selectedTech === tech ? "default" : "outline"}
-                  className="py-1.5 px-3 cursor-pointer"
+                  className={`industrial-border py-1.5 px-3 cursor-pointer ${selectedTech === tech ? "bg-primary/20" : "bg-transparent"}`}
                   onClick={() => handleTechChange(tech)}
                 >
-                  {tech}
-                </Badge>
+                  <span className={`text-xs font-mono ${selectedTech === tech ? "text-primary" : "text-muted-foreground"}`}>
+                    {tech}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
           
           {selectedTech && (
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <button 
               onClick={() => setSelectedTech(null)}
-              className="mt-4"
+              className="underground-button px-4 py-2 rounded-sm mt-4"
             >
-              Effacer les filtres
-            </Button>
+              <span className="uppercase tracking-wider text-xs">Effacer les filtres</span>
+            </button>
           )}
         </div>
       </SheetContent>

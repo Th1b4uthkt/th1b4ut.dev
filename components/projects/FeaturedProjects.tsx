@@ -19,14 +19,21 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
 
   return (
     <motion.div 
-      className="border-t pt-8 sm:pt-12 mb-12 sm:mb-16"
+      className="border-t border-primary/20 pt-8 sm:pt-12 mb-12 sm:mb-16"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
       <div className="flex flex-col items-center space-y-2 sm:space-y-4 text-center mb-6 sm:mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter">Projets à la une</h2>
-        <p className="max-w-[700px] text-sm sm:text-base md:text-lg text-muted-foreground">
+        <div className="inline-block industrial-border px-4 py-1 mb-2">
+          <span className="underground-text text-sm">SÉLECTION</span>
+        </div>
+        
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter underground-gradient-text">
+          Projets à la une
+        </h2>
+        
+        <p className="max-w-[700px] text-sm sm:text-base md:text-lg text-muted-foreground font-mono">
           Découvrez mes projets les plus récents et les plus innovants
         </p>
       </div>
@@ -40,7 +47,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
             transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
             className="h-full"
           >
-            <Card className="overflow-hidden h-full flex flex-col">
+            <div className="underground-card h-full flex flex-col rounded-sm overflow-hidden">
               <div className="aspect-video relative overflow-hidden">
                 {project.image ? (
                   <Image 
@@ -53,31 +60,44 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                   />
                 ) : (
                   <div className="h-full w-full bg-muted flex items-center justify-center">
-                    <span className="text-muted-foreground">Image du Projet</span>
+                    <span className="text-muted-foreground font-mono">Image du Projet</span>
                   </div>
                 )}
                 <div className="absolute top-2 right-2">
-                  <Badge className="bg-primary/80 hover:bg-primary text-xs sm:text-sm">Featured</Badge>
+                  <div className="industrial-border px-2 py-1">
+                    <span className="text-xs sm:text-sm text-secondary font-mono">Featured</span>
+                  </div>
                 </div>
               </div>
-              <CardContent className={`${isMobile ? 'p-4' : 'p-6'} flex-grow flex flex-col`}>
-                <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-bold mb-2`}>{project.title}</h3>
-                <p className={`text-sm sm:text-base text-muted-foreground mb-4 flex-grow ${isMobile ? 'line-clamp-2' : 'line-clamp-3'}`}>
+              
+              <div className={`${isMobile ? 'p-4' : 'p-6'} flex-grow flex flex-col`}>
+                <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-bold mb-2 underground-text`}>
+                  {project.title}
+                </h3>
+                
+                <p className={`text-sm sm:text-base text-muted-foreground mb-4 flex-grow ${isMobile ? 'line-clamp-2' : 'line-clamp-3'} font-mono`}>
                   {project.description}
                 </p>
-                <Button asChild className="w-full mt-auto" size={isMobile ? "sm" : "default"}>
-                  <Link href={`/projets/${project.id}`}>Voir le projet</Link>
-                </Button>
-              </CardContent>
-            </Card>
+                
+                <Link 
+                  href={`/projets/${project.id}`} 
+                  className="underground-button w-full py-2 rounded-sm flex items-center justify-center mt-auto"
+                >
+                  <span className="uppercase tracking-wider text-sm">Voir le projet</span>
+                </Link>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
       
       {/* View All Projects Button */}
       <div className="flex justify-center mt-8">
-        <Button variant="outline" asChild>
-          <Link href="#" className="flex items-center gap-2">
+        <Link 
+          href="#" 
+          className="industrial-border px-6 py-3 rounded-sm flex items-center justify-center group"
+        >
+          <span className="terminal-underground text-sm">
             Voir tous les projets
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,12 +109,12 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-4 w-4"
+              className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1"
             >
               <path d="m9 18 6-6-6-6" />
             </svg>
-          </Link>
-        </Button>
+          </span>
+        </Link>
       </div>
     </motion.div>
   );
