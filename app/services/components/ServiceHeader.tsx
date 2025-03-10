@@ -5,7 +5,7 @@ export function ServiceHeader() {
   return (
     <div className="flex flex-col items-center space-y-8 text-center mb-12 md:mb-16">
       <div className="inline-block industrial-border px-6 py-2 mb-4">
-        <span className="underground-text text-lg">SERVICES UNDERGROUND</span>
+        <span className="underground-text text-lg">SERVICES</span>
       </div>
       
       <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl underground-gradient-text">

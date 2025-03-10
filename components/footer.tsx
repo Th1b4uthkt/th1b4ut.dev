@@ -45,7 +45,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-3 pt-1">
               <Link 
-                href="https://github.com" 
+                href="https://github.com/Th1b4uthkt" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground/80 hover:text-primary transition-colors hover-lift"
@@ -91,7 +91,7 @@ export function Footer() {
                 </svg>
               </Link>
               <Link 
-                href="https://twitter.com" 
+                href="https://x.com/thibaut_hook" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground/80 hover:text-primary transition-colors"

@@ -38,11 +38,15 @@ export function EducationSection({ title, subtitle, items }: EducationSectionPro
 
 function EducationItem({ item }: { item: EducationItem }) {
   const IconComponent = Icons[item.icon as keyof typeof Icons];
-
+  
   return (
     <div className="flex items-center gap-4 p-3 rounded-sm hover:bg-primary/5 transition-colors duration-200 border-l border-primary/20 pl-4">
       <div className="industrial-border p-2">
-        <IconComponent className="h-5 w-5 text-primary" />
+        {IconComponent ? (
+          <IconComponent className="h-5 w-5 text-primary" />
+        ) : (
+          <div className="h-5 w-5 text-primary flex items-center justify-center">•</div>
+        )}
       </div>
       <div className="flex-1">
         <h3 className="font-bold underground-text">{item.title}</h3>

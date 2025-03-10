@@ -103,7 +103,7 @@ export function HeroSection() {
               transition={{ delay: 0.6 }}
             >
               <div className="industrial-border inline-block px-4 py-1">
-                <span className="underground-text text-xs sm:text-sm">+5 ans d&apos;expérience en développement multi-plateforme</span>
+                <span className="underground-text text-xs sm:text-sm">+15 ans d&apos;expérience en développement multi-plateforme</span>
               </div>
             </motion.div>
           </div>

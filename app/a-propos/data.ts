@@ -1,88 +1,88 @@
 export const aboutData = {
   hero: {
     title: "À propos",
-    subtitle: "Solutions numériques innovantes et intelligence artificielle sans compromis"
+    subtitle: "Code, Algorithmes & Conscience Augmentée"
   },
   presentation: {
-    title: "Bonjour, je suis Thibaut",
+    title: "TH1B4UT",
     paragraphs: [
-      "Développeur de solutions web et d'applications mobiles spécialisé dans la création d'algorithmes avancés et l'intégration d'intelligence artificielle pour résoudre des problématiques métier complexes.",
-      "Je ne crée pas de simples sites web ou landing pages, mais des applications fonctionnelles qui répondent à des besoins spécifiques : algorithmes pour les énergies nouvelles, tunnels de vente pour les rénovations énergétiques (MaPrimeRenov), assistants IA pour forces de vente, et solutions de chatbots personnalisés.",
-      "Basé entre Bordeaux, Bangkok et Koh Phangan, j'apporte une vision internationale et une approche pragmatique à chaque projet, en combinant expertise technique et compréhension approfondie des enjeux business."
+      "Développeur. Architecte numérique. Explorateur de l'esprit. Entre Bordeaux, Bangkok et Koh Phangan. Entre IA et vibrations profondes.",
+      "Je ne fais pas des sites web. Je ne \"développe\" pas juste des applications. Je conçois des systèmes qui pensent, qui fluidifient, qui automatisent, qui libèrent. Tout ce qui est répétitif doit disparaître. Tout ce qui est inutile doit être optimisé.",
+      "L'intelligence artificielle n'est pas une fin, mais un levier. Une technologie bien maîtrisée n'asservit pas, elle augmente les capacités humaines. Je crée des algorithmes sur-mesure, taillés pour ton business, pensés pour ton efficacité."
     ],
-    skills: ["NextJS", "React", "TypeScript", "TailwindCSS", "Supabase", "PostgreSQL", "LangChain", "AI SDK", "RAG", "Machine Learning"]
+    skills: ["IA & Machine Learning", "NextJS", "React", "TypeScript", "Supabase", "PostgreSQL", "RAG", "Apps Mobiles", "Growth & SEO", "Automatisation"]
   },
   career: {
     title: "Mon parcours",
     timeline: [
       {
-        title: "Développeur de solutions IA & Web",
-        period: "2019 - Aujourd'hui",
-        description: "Conception et développement de solutions numériques avancées : algorithmes pour les énergies nouvelles, chatbots d'entreprise, applications d'assistance à la vente avec IA. Partenaire Vercel SDK et Supabase."
+        title: "Architecte de systèmes IA & Automatisation",
+        period: "2020 - Aujourd'hui",
+        description: "Conception de systèmes intelligents qui pensent et automatisent. Développement de chatbots autonomes, assistants IA personnalisés et solutions RAG pour entreprises. Libération des processus répétitifs et optimisation des flux de travail."
       },
       {
-        title: "Spécialiste en applications métier",
-        period: "2016 - 2019",
-        description: "Développement d'applications sur mesure pour les secteurs de l'énergie et de la rénovation. Création de tunnels de vente optimisés et d'outils de calcul pour MaPrimeRenov."
+        title: "Développeur d'algorithmes sur-mesure",
+        period: "2017 - 2020",
+        description: "Création d'algorithmes taillés pour des business spécifiques. Développement de solutions d'automatisation pour les secteurs de l'énergie et de la rénovation. Intégration de machine learning dans les processus métier."
       },
       {
-        title: "Développeur Full-Stack",
-        period: "2013 - 2016",
-        description: "Conception d'applications web et mobiles pour diverses industries. Début de spécialisation dans les solutions algorithmiques et l'automatisation des processus métier."
+        title: "Explorateur Full-Stack & Mobile",
+        period: "2014 - 2017",
+        description: "Conception d'applications web et mobiles transcendant les limites des templates. Développement de solutions clé en main et d'intégrations sur-mesure. Début de l'exploration des systèmes qui libèrent plutôt qu'enfermer."
       },
       {
-        title: "Formation continue",
+        title: "Hacker de la complexité",
         period: "2011 - Aujourd'hui",
-        description: "Apprentissage constant des technologies émergentes et perfectionnement en intelligence artificielle et développement web avancé."
+        description: "Apprentissage constant des technologies émergentes. Exploration des frontières entre code et conscience augmentée. Recherche perpétuelle de l'équilibre entre performance technique et libération des contraintes."
       }
     ]
   },
   philosophy: {
-    title: "Ma philosophie",
+    title: "Ma vision",
     values: [
       {
         icon: "eye",
-        title: "Liberté numérique et transparence",
-        description: "Inspiré par Orwell et Dostoïevski, je défends une vision d'un internet et d'une IA sans censure. Je soutiens activement les initiatives d'Eric Hartford pour une IA ouverte et transparente, conçue pour servir l'utilisateur sans restrictions arbitraires."
+        title: "L'IA comme allié, pas comme dictateur",
+        description: "L'époque où Orwell imaginait un contrôle absolu est dépassée. Aujourd'hui, la menace ne vient pas d'un Big Brother omniscient, mais d'outils bridés, verrouillés, formatés pour contrôler la pensée. Je défends un web libre, une IA transparente, un code sans chaînes."
       },
       {
         icon: "code",
-        title: "Solutions sur mesure, pas de templates",
-        description: "Je crois en la création de solutions qui répondent précisément à vos besoins, plutôt que d'adapter votre entreprise à des outils génériques. Chaque ligne de code est écrite avec un objectif précis : résoudre votre problématique spécifique."
+        title: "Hacker la complexité, transcender les systèmes",
+        description: "Si le code est ouvert, tout est possible. Je crois en la création de solutions qui libèrent plutôt que d'enfermer, qui augmentent vos capacités plutôt que de vous rendre dépendant. Chaque ligne de code est écrite pour vous émanciper."
       },
       {
         icon: "lightbulb",
-        title: "Sagesse pratique et efficacité",
-        description: "Influencé par la pensée de Confucius, je recherche l'équilibre entre innovation technique et sagesse pratique. La meilleure technologie est celle qui s'intègre harmonieusement dans votre quotidien et amplifie vos capacités sans créer de dépendances."
+        title: "Entre performance et automatisation",
+        description: "Ma tech est un trip entre performance et automatisation. Je crée des chatbots autonomes, des systèmes RAG, des assistants IA personnalisés, des solutions clé en main et des intégrations sur-mesure. Parce qu'un bon produit invisible ne vaut rien."
       }
     ]
   },
   education: {
-    title: "Expertise technique",
-    subtitle: "Certifications et spécialisations dans les technologies de pointe",
+    title: "Ma tech",
+    subtitle: "Un trip entre performance et automatisation",
     items: [
       {
-        icon: "award",
-        title: "Certifications IA & Développement",
-        description: "Certification OpenAI Developers, Vercel SDK Partners, Supabase Partners, Certification TypeScript avancé, Formation META React & React Native, Certification NEXTJS"
+        icon: "brain",
+        title: "IA & Machine Learning",
+        description: "Chatbots autonomes, RAG, assistants IA personnalisés, fine-tuning de modèles LLM, et création de systèmes intelligents avec données privées"
       },
       {
-        icon: "cpu",
-        title: "Intelligence Artificielle",
-        description: "Spécialisation en systèmes RAG (Retrieval Augmented Generation), fine-tuning de modèles LLM, et création de chatbots d'entreprise avec données privées"
+        icon: "code",
+        title: "Développement Full-Stack",
+        description: "NextJS, React, Supabase, PostgreSQL, TypeScript, TailwindCSS - L'architecture technique au service de l'expérience utilisateur"
       },
       {
-        icon: "headphones",
-        title: "Créativité parallèle",
-        description: "Production de musique électronique (Afro House, Deep House, Minimal) - Une passion qui nourrit ma créativité technique et ma capacité à penser différemment"
+        icon: "smartphone",
+        title: "Apps mobiles & Marque Blanche",
+        description: "Solutions clé en main, intégrations sur-mesure, applications mobiles natives et hybrides pour tous les besoins"
       }
     ]
   },
   cta: {
-    title: "Transformons votre vision en solution",
-    subtitle: "Vous avez une problématique métier complexe qui nécessite une solution numérique sur mesure?",
+    title: "Transformons ta vision en système",
+    subtitle: "Tu as une problématique métier complexe qui nécessite une solution numérique sur mesure?",
     primaryButton: {
-      text: "Discuter de votre projet",
+      text: "Discuter de ton projet",
       href: "/contact"
     },
     secondaryButton: {

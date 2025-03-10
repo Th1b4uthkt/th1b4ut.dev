@@ -76,7 +76,7 @@ export default function ProjectsPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="inline-block industrial-border px-6 py-2 mb-4">
-            <span className="underground-text text-lg">PROJETS UNDERGROUND</span>
+            <span className="underground-text text-lg">PROJETS</span>
           </div>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter underground-gradient-text">

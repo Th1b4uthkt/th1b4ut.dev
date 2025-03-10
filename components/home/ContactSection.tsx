@@ -100,8 +100,8 @@ export function ContactSection() {
             <p className="terminal-underground text-sm mb-2">Me retrouver sur</p>
             <div className="flex space-x-4 sm:space-x-6">
               <SocialIcon icon={<FaLinkedin />} href="https://linkedin.com" label="LinkedIn" />
-              <SocialIcon icon={<FaGithub />} href="https://github.com" label="GitHub" />
-              <SocialIcon icon={<FaTwitter />} href="https://twitter.com" label="Twitter" />
+              <SocialIcon icon={<FaGithub />} href="https://github.com/Th1b4uthkt" label="GitHub" />
+              <SocialIcon icon={<FaTwitter />} href="https://x.com/thibaut_hook" label="Twitter" />
             </div>
           </motion.div>
           

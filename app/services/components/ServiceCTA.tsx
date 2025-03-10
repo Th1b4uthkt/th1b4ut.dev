@@ -39,7 +39,7 @@ export function ServiceCTA() {
         </Link>
         
         <Link href="mailto:contact@th1b4ut.com" className="industrial-border px-6 py-3 rounded-sm flex items-center justify-center">
-          <span className="terminal-underground text-sm">contact@th1b4ut.com</span>
+          <span className="terminal-underground text-sm">contact@th1b4ut.dev</span>
         </Link>
       </div>
     </div>

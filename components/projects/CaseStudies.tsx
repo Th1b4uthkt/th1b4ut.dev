@@ -10,14 +10,14 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 const caseStudies = [
   {
     id: 1,
-    title: "Refonte d'une plateforme SaaS avec intégration IA",
-    description: "Comment j'ai transformé une application legacy en une plateforme moderne et performante avec des fonctionnalités d'IA avancées.",
+    title: "Système RAG pour cabinet d'avocats",
+    description: "Comment j'ai conçu un système de recherche augmentée par génération qui a transformé la recherche juridique et réduit de 70% le temps de préparation des dossiers.",
     link: "/etudes-de-cas/1"
   },
   {
     id: 2,
-    title: "Optimisation SEO d'un site e-commerce",
-    description: "Les stratégies techniques mises en place pour améliorer le référencement naturel et les performances d'une boutique en ligne.",
+    title: "Solutions Marque Blanche pour une chaîne de fitness",
+    description: "Déploiement d'une application Coaching-FIT en marque blanche pour 15 salles de sport, augmentant l'engagement client de 230% et la rétention de 45%.",
     link: "/etudes-de-cas/2"
   }
 ];

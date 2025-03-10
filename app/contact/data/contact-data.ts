@@ -1,13 +1,13 @@
 export const contactInfo = {
-  email: "contact@th1b4ut.com",
-  phone: "+33 6 00 00 00 00",
-  location: "Paris, France (disponible en remote)",
+  email: "contact@th1b4ut.dev",
+  phone: "+33 7 44 17 69 88",
+  location: "Paris, Bangkok",
 };
 
 export const socialLinks = [
   {
     name: "GitHub",
-    url: "https://github.com",
+    url: "https://github.com/Th1b4uthkt",
     icon: "github",
   },
   {
@@ -17,7 +17,7 @@ export const socialLinks = [
   },
   {
     name: "Twitter/X",
-    url: "https://twitter.com",
+    url: "https://x.com/thibaut_hook",
     icon: "twitter",
   },
   {
@@ -29,8 +29,8 @@ export const socialLinks = [
 
 export const availabilityInfo = {
   status: "available",
-  date: "Juin 2024",
-  message: "Je suis actuellement disponible pour de nouveaux projets à partir de Juin 2024. Contactez-moi dès maintenant pour réserver une place dans mon planning.",
+  date: "Mai 2025",
+  message: "Je suis actuellement disponible pour de nouveaux projets à partir de Mai 2025. Contactez-moi dès maintenant pour réserver une place dans mon planning.",
 };
 
 export const callToActionInfo = {

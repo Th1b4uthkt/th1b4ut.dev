@@ -10,7 +10,8 @@ import {
   Scale,
   Award,
   Cpu,
-  Headphones
+  Headphones,
+  Brain
 } from "lucide-react";
 
 export const Icons = {
@@ -25,7 +26,8 @@ export const Icons = {
   "balance": Scale,
   "award": Award,
   "cpu": Cpu,
-  "headphones": Headphones
+  "headphones": Headphones,
+  "brain": Brain
 } as const;
 
 export type Icon = keyof typeof Icons; 

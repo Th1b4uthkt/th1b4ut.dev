@@ -19,7 +19,7 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="flex flex-col items-center space-y-4 text-center mb-12">
           <div className="inline-block industrial-border px-6 py-2 mb-4">
-            <span className="underground-text text-lg">PROFIL</span>
+            <span className="underground-text text-lg">TH1B4UT</span>
           </div>
           
           <div className="vu-meter mx-auto w-1/2 max-w-[300px] my-4" style={{ "--level": "70%" } as React.CSSProperties}></div>
