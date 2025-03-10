@@ -15,7 +15,6 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { Badge } from "@/components/ui/badge";
 import { BackToTop } from "@/components/ui/back-to-top";
 
 export default function ProjectsPage() {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaArrowRight, FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 

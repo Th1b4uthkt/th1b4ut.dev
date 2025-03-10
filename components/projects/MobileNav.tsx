@@ -5,7 +5,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { ProjectCategory } from "@/Data/projects";
-import { Badge } from "@/components/ui/badge";
 
 interface MobileNavProps {
   categories: ProjectCategory[];

@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+// import { Badge } from "@/components/ui/badge";
 import { ProjectCategory } from "@/Data/projects";
 import { motion } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area";

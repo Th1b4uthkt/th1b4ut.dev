@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+// import { Badge } from "@/components/ui/badge";
+// import { Button } from "@/components/ui/button";
+// import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -43,7 +43,7 @@ export function CaseStudies() {
         </h2>
         
         <p className="max-w-[700px] text-sm sm:text-base md:text-lg text-muted-foreground font-mono">
-          Découvrez comment j'ai relevé des défis techniques complexes pour mes clients
+          Découvrez comment j&apos;ai relevé des défis techniques complexes pour mes clients
         </p>
       </div>
 
@@ -75,7 +75,7 @@ export function CaseStudies() {
                   href={study.link}
                   className="underground-button w-full py-2 rounded-sm flex items-center justify-center"
                 >
-                  <span className="uppercase tracking-wider text-sm">Lire l'étude de cas</span>
+                  <span className="uppercase tracking-wider text-sm">Lire l étude de cas</span>
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { FaCode, FaMobileAlt, FaJava, FaReact } from "react-icons/fa";
+import { FaCode, FaMobileAlt, FaJava } from "react-icons/fa";
 import { useState } from "react";
 import { techStacks, getProjectsByCategory, ProjectCategory } from "@/Data/projects";
 import { LampContainer } from "@/components/ui/lamp";

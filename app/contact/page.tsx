@@ -8,7 +8,6 @@ import { Availability } from "./components/Availability";
 import { CallToAction } from "./components/CallToAction";
 import { FAQ } from "./components/FAQ";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
 
 export default function ContactPage() {
   const container = {

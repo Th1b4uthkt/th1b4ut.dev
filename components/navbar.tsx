@@ -160,7 +160,7 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
         scrolled
-          ? "bg-background/90 backdrop-blur-md border-b shadow-sm"
+          ? "bg-background/90 backdrop-blur-md border-b cyber-border shadow-cyber"
           : "bg-background/60 backdrop-blur-sm"
       )}
       initial={{ y: -100 }}
@@ -177,10 +177,10 @@ export function Navbar() {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <Link href="/" className="group flex items-center">
-              <span className="font-mono text-xl font-bold relative">
+              <span className="font-mono text-xl font-bold relative neon-text">
                 Th1b4ut
                 <motion.span 
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full" 
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full animate-pulse-subtle" 
                   transition={{ duration: 0.2 }}
                   initial={false}
                   animate={{ width: activeItem === "/" ? "100%" : "0%" }}
@@ -196,7 +196,7 @@ export function Navbar() {
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className="group relative flex items-center py-1"
+                  className="group relative flex items-center py-1 hover-lift"
                   onMouseEnter={() => {
                     setActiveItem(item.href);
                     if (item.href === "/services") handleServicesHover(true);
@@ -211,13 +211,13 @@ export function Navbar() {
                     "text-sm font-medium transition-colors",
                     pathname === item.href || 
                     (pathname.startsWith(item.href) && item.href !== "/") 
-                      ? "text-foreground" 
+                      ? "text-gradient" 
                       : "text-foreground/60 hover:text-foreground/80"
                   )}>
                     {item.name}
                   </span>
                   {item.badge && (
-                    <Badge variant="outline" className="ml-2 py-0 h-5 text-[10px] border-primary text-primary">
+                    <Badge variant="outline" className="ml-2 py-0 h-5 text-[10px] border-primary text-primary shadow-glow">
                       {item.badge}
                     </Badge>
                   )}
@@ -227,7 +227,7 @@ export function Navbar() {
                     </svg>
                   )}
                   <motion.span 
-                    className="absolute -bottom-1 left-0 h-0.5 bg-primary"
+                    className="absolute -bottom-1 left-0 h-0.5 bg-primary shadow-neon"
                     initial={{ width: "0%" }}
                     animate={{ 
                       width: activeItem === item.href || 
@@ -243,7 +243,7 @@ export function Navbar() {
                   <AnimatePresence>
                     {showServicesSubmenu && (
                       <motion.div 
-                        className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-background border z-50"
+                        className="absolute left-0 mt-2 w-56 rounded-md shadow-cyber-card glass-card border-primary/20 border z-50"
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -5 }}
@@ -254,7 +254,7 @@ export function Navbar() {
                             <Link 
                               key={subItem.href} 
                               href={subItem.href}
-                              className="block px-4 py-2 text-sm hover:bg-accent/50 text-foreground/80 hover:text-foreground"
+                              className="block px-4 py-2 text-sm hover:bg-accent/50 text-foreground/80 hover:text-gradient transition-all duration-200"
                             >
                               {subItem.name}
                             </Link>

@@ -1,5 +1,3 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { availabilityInfo } from "../data/contact-data";
 import { Calendar } from "lucide-react";
 

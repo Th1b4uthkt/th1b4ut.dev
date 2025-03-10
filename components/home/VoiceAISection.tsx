@@ -98,10 +98,10 @@ export function VoiceAISection() {
           
           <div className="space-y-2">
             <h2 className="underground-gradient-text text-3xl font-bold tracking-tighter sm:text-4xl">
-              Transformez votre communication client avec l'IA vocale
+              Transformez votre communication client avec l&apos;IA vocale
             </h2>
             <p className="text-muted-foreground md:text-lg">
-              Des solutions vocales intelligentes qui révolutionnent l'engagement client
+              Des solutions vocales intelligentes qui révolutionnent l&apos;engagement client
             </p>
           </div>
           

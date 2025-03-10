@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { callToActionInfo } from "../data/contact-data";
 import { Video } from "lucide-react";
 
