@@ -55,8 +55,9 @@ const navigation = [
     ),
     description: "Ce que je peux vous offrir",
     submenu: [
-      { name: "Développement Web", href: "/services#web" },
-      { name: "Applications Full-Stack", href: "/services#fullstack" },
+      { name: "Ghost Production", href: "/services#ghost" },
+      { name: "MVP Full-Stack", href: "/services/mvp", badge: "Nouveau" },
+      { name: "White Label", href: "/services/white-label", badge: "Bientôt" },
       { name: "Solutions IA", href: "/services#ai" },
       { name: "Consulting Tech", href: "/services#consulting" },
     ]
@@ -117,6 +118,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = React.useState(false)
   const [activeItem, setActiveItem] = React.useState<string | null>(null)
   const [showServicesSubmenu, setShowServicesSubmenu] = React.useState(false)
+  const submenuTimeoutRef = React.useRef<NodeJS.Timeout | undefined>(undefined)
 
   // Handle scroll effect
   React.useEffect(() => {
@@ -150,9 +152,19 @@ export function Navbar() {
     }
   }, [pathname])
 
-  // Toggle submenu for services
+  // Toggle submenu for services with delay
   const handleServicesHover = (show: boolean) => {
-    setShowServicesSubmenu(show)
+    if (submenuTimeoutRef.current) {
+      clearTimeout(submenuTimeoutRef.current)
+    }
+    
+    if (!show) {
+      submenuTimeoutRef.current = setTimeout(() => {
+        setShowServicesSubmenu(false)
+      }, 100) // Petit délai avant de fermer
+    } else {
+      setShowServicesSubmenu(true)
+    }
   }
 
   return (
@@ -193,18 +205,21 @@ export function Navbar() {
           {/* Navigation (centrée) - Visible uniquement sur desktop */}
           <nav className="hidden md:flex items-center justify-center gap-6 lg:gap-8">
             {navigation.map((item) => (
-              <div key={item.href} className="relative group">
+              <div 
+                key={item.href} 
+                className="relative group"
+                onMouseEnter={() => {
+                  setActiveItem(item.href);
+                  if (item.href === "/services") handleServicesHover(true);
+                }}
+                onMouseLeave={() => {
+                  setActiveItem(pathname === item.href ? item.href : null);
+                  if (item.href === "/services") handleServicesHover(false);
+                }}
+              >
                 <Link
                   href={item.href}
                   className="group relative flex items-center py-1 hover-lift"
-                  onMouseEnter={() => {
-                    setActiveItem(item.href);
-                    if (item.href === "/services") handleServicesHover(true);
-                  }}
-                  onMouseLeave={() => {
-                    setActiveItem(pathname === item.href ? item.href : null);
-                    if (item.href === "/services") handleServicesHover(false);
-                  }}
                 >
                   {item.icon}
                   <span className={cn(
@@ -243,20 +258,29 @@ export function Navbar() {
                   <AnimatePresence>
                     {showServicesSubmenu && (
                       <motion.div 
-                        className="absolute left-0 mt-2 w-56 rounded-md shadow-cyber-card glass-card border-primary/20 border z-50"
+                        className="absolute left-0 mt-1 w-56 z-50"
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -5 }}
                         transition={{ duration: 0.2 }}
+                        onMouseEnter={() => handleServicesHover(true)}
+                        onMouseLeave={() => handleServicesHover(false)}
                       >
-                        <div className="py-2">
+                        <div className="py-2 rounded-md shadow-cyber-card glass-card border-primary/20 border">
                           {item.submenu.map((subItem) => (
                             <Link 
                               key={subItem.href} 
                               href={subItem.href}
                               className="block px-4 py-2 text-sm hover:bg-accent/50 text-foreground/80 hover:text-gradient transition-all duration-200"
                             >
-                              {subItem.name}
+                              <div className="flex items-center justify-between">
+                                <span>{subItem.name}</span>
+                                {subItem.badge && (
+                                  <Badge variant="outline" className="ml-2 py-0 h-5 text-[10px] border-primary text-primary">
+                                    {subItem.badge}
+                                  </Badge>
+                                )}
+                              </div>
                             </Link>
                           ))}
                         </div>
@@ -387,13 +411,18 @@ export function Navbar() {
                                 <Link
                                   href={subItem.href}
                                   className={cn(
-                                    "flex items-center py-2 px-3 rounded-md text-sm hover:bg-accent/50",
+                                    "flex items-center justify-between py-2 px-3 rounded-md text-sm hover:bg-accent/50",
                                     pathname === subItem.href
                                       ? "text-primary font-medium"
                                       : "text-muted-foreground"
                                   )}
                                 >
-                                  {subItem.name}
+                                  <span>{subItem.name}</span>
+                                  {subItem.badge && (
+                                    <Badge variant="outline" className="ml-2 py-0 h-5 text-[10px] border-primary text-primary">
+                                      {subItem.badge}
+                                    </Badge>
+                                  )}
                                 </Link>
                               </SheetClose>
                             ))}

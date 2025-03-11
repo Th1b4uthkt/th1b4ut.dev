@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ContactForm } from "./components/ContactForm";
-import { ContactInfo } from "./components/ContactInfo";
-import { SocialLinks } from "./components/SocialLinks";
-import { Availability } from "./components/Availability";
-import { CallToAction } from "./components/CallToAction";
-import { FAQ } from "./components/FAQ";
+import { ContactForm } from "@/components/contact/ContactForm";
+import { ContactInfo } from "@/components/contact/ContactInfo";
+import { SocialLinks } from "@/components/contact/SocialLinks";
+import { Availability } from "@/components/contact/Availability";
+import { CallToAction } from "@/components/contact/CallToAction";
+import { FAQ } from "@/components/contact/FAQ";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function ContactPage() {

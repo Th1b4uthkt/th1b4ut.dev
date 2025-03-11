@@ -3,7 +3,7 @@ import { TimelineSection } from "@/components/sections/about/TimelineSection";
 import { PhilosophySection } from "@/components/sections/about/PhilosophySection";
 import { EducationSection } from "@/components/sections/about/EducationSection";
 import { CTASection } from "@/components/sections/CTASection";
-import { aboutData } from "./data";
+import { aboutData } from "../projets/data";
 
 export default function AboutPage() {
   return (

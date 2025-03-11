@@ -17,11 +17,7 @@ export function TimelineSection({ title, items }: TimelineSectionProps) {
 
   return (
     <div className="mb-16">
-      <div className="inline-block industrial-border px-4 py-1 mb-4">
-        <span className="underground-text text-sm">PARCOURS</span>
-      </div>
-      
-      <h2 className="text-3xl font-bold mb-8 text-center underground-gradient-text">{title}</h2>
+      <h2 className="text-3xl font-bold mb-8 text-center">{title}</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
@@ -42,11 +38,11 @@ export function TimelineSection({ title, items }: TimelineSectionProps) {
 
 function TimelineItem({ item }: { item: TimelineItem }) {
   return (
-    <div className="relative pl-8 border-l border-primary/30 pb-6 industrial-glitch">
-      <div className="absolute -left-1.5 mt-1.5 h-3 w-3 bg-primary industrial-border"></div>
-      <h3 className="text-xl font-bold underground-text">{item.title}</h3>
-      <p className="text-muted-foreground font-mono">{item.period}</p>
-      <p className="mt-2 font-mono">{item.description}</p>
+    <div className="relative pl-8 border-l pb-6">
+      <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-primary"></div>
+      <h3 className="text-xl font-bold">{item.title}</h3>
+      <p className="text-muted-foreground">{item.period}</p>
+      <p className="mt-2">{item.description}</p>
     </div>
   );
 } 

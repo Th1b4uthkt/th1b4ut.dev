@@ -1,9 +1,9 @@
-import { ServiceHeader } from './components/ServiceHeader';
-import { ServicesList } from './components/ServicesList';
-import { WorkProcess } from './components/WorkProcess';
-import { Testimonials } from './components/Testimonials';
-import { ServiceCTA } from './components/ServiceCTA';
-import { ServiceBenefits } from './components/ServiceBenefits';
+import { ServiceHeader } from '@/components/services/ServiceHeader';
+import { ServicesList } from '@/components/services/ServicesList';
+import { WorkProcess } from '@/components/services/WorkProcess';
+import { Testimonials } from '@/components/services/Testimonials';
+import { ServiceCTA } from '@/components/services/ServiceCTA';
+import { ServiceBenefits } from '@/components/services/ServiceBenefits';
 
 export default function ServicesPage() {
   return (
