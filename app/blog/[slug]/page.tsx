@@ -4,16 +4,18 @@ import { getBlogPostBySlug, getRelatedPosts } from '../../../Data/blog';
 import { BlogContent } from '../../../components/blog/BlogContent';
 import { BlogCard } from '../../../components/blog/BlogCard';
 
-interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
-}
+// Définir le type des paramètres
+type Params = {
+  slug: string;
+};
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  
-  const post = getBlogPostBySlug(slug);
+// Fonction pour générer les métadonnées
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Params 
+}): Promise<Metadata> {
+  const post = getBlogPostBySlug(params.slug);
   
   if (!post) {
     return {
@@ -32,54 +34,54 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       url: `https://votresite.com/blog/${post.slug}`,
       images: [
         {
-          url: `https://votresite.com${post.coverImage}`,
+          url: post.coverImage,
           width: 1200,
           height: 630,
           alt: post.title
         }
-      ],
-      publishedTime: post.date,
-      authors: [post.author.name],
-      tags: post.tags
+      ]
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: [`https://votresite.com${post.coverImage}`]
+      images: [post.coverImage]
     }
   };
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params;
-  
-  const post = getBlogPostBySlug(slug);
+// Page principale
+export default async function Page({ 
+  params 
+}: { 
+  params: Params 
+}) {
+  const post = getBlogPostBySlug(params.slug);
   
   if (!post) {
     notFound();
   }
   
-  const relatedPosts = getRelatedPosts(post);
+  const relatedPosts = await getRelatedPosts(post);
   
   return (
     <main className="container-centered gradient-bg py-12 md:py-16 lg:py-24">
-      <div className="content-section">
+      <article className="content-section">
         <BlogContent post={post} />
-        
-        {relatedPosts.length > 0 && (
-          <div className="mt-16">
-            <h2 className="mb-8 text-2xl font-bold neon-text">Articles similaires</h2>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedPosts.map(post => (
-                <BlogCard key={post.id} post={post} />
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+      </article>
       
-      <div className="waveform-bg absolute inset-0 -z-10"></div>
+      {relatedPosts.length > 0 && (
+        <section className="mt-16">
+          <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Articles similaires</h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedPosts.map(relatedPost => (
+              <BlogCard key={relatedPost.slug} post={relatedPost} />
+            ))}
+          </div>
+        </section>
+      )}
+      
+      <div className="cyber-grid absolute inset-0 -z-10"></div>
     </main>
   );
 } 

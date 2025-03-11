@@ -6,17 +6,17 @@ import {
   whitelabelFAQ,
   whitelabelManifesto,
   whitelabelGrowthKit,
-} from "@/app/data/whitelabel";
+} from "@/Data/whitelabel";
 
-import { Hero } from "@/app/components/whitelabel/Hero";
-import { Templates } from "@/app/components/whitelabel/Templates";
-import { Cases } from "@/app/components/whitelabel/Cases";
-import { Features } from "@/app/components/whitelabel/Features";
-import { Pricing } from "@/app/components/whitelabel/Pricing";
-import { FAQ } from "@/app/components/whitelabel/FAQ";
-import { GrowthKit } from "@/app/components/whitelabel/GrowthKit";
-import { Manifesto } from "@/app/components/whitelabel/Manifesto";
-import { Contact } from "@/app/components/whitelabel/Contact";
+import { Hero } from "@/components/whitelabel/Hero";
+import { Templates } from "@/components/whitelabel/Templates";
+import { Cases } from "@/components/whitelabel/Cases";
+import { Features } from "@/components/whitelabel/Features";
+import { Pricing } from "@/components/whitelabel/Pricing";
+import { FAQ } from "@/components/whitelabel/FAQ";
+import { GrowthKit } from "@/components/whitelabel/GrowthKit";
+import { Manifesto } from "@/components/whitelabel/Manifesto";
+import { Contact } from "@/components/whitelabel/Contact";
 
 export const metadata = {
   title: "Whitelabel - Applications Mobiles en 15 Jours | Th1b4ut",

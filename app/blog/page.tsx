@@ -27,18 +27,7 @@ export const metadata: Metadata = {
   }
 };
 
-// Définir l'interface pour les props de la page
-interface BlogPageProps {
-  searchParams?: {
-    [key: string]: string | string[] | undefined
-  }
-}
-
-// Utiliser l'interface pour typer les props
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  // Si vous utilisez searchParams, attendez-les avant de les utiliser
-  const searchParamsData = searchParams ? await searchParams : {};
-  
+export default async function BlogPage() {
   const posts = getAllBlogPosts();
   
   // Extraire tous les tags uniques

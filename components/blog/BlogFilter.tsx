@@ -14,19 +14,27 @@ export function BlogFilter({ posts, tags }: BlogFilterProps) {
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Si ce composant reçoit des paramètres dynamiques comme searchParams,
-  // vous devriez utiliser React.use() pour les déballer
-  // Exemple: const searchParamsData = React.use(searchParams);
+  // Filtrer les posts en fonction du tag actif et de la recherche
+  const filteredPosts = posts.filter(post => {
+    const matchesTag = !activeTag || post.tags.includes(activeTag);
+    const matchesSearch = !searchQuery || 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesTag && matchesSearch;
+  });
 
   return (
     <>
       <BlogHeader 
         tags={tags}
         initialActiveTag={activeTag}
+        onTagChange={setActiveTag}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
       />
       
       <BlogList 
-        initialPosts={posts}
+        initialPosts={filteredPosts}
         activeTag={activeTag}
         searchQuery={searchQuery}
       />

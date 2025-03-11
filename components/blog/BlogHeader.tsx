@@ -1,26 +1,24 @@
 'use client';
 
-import { useState } from 'react';
 import { Search } from 'lucide-react';
 
 interface BlogHeaderProps {
   tags: string[];
   initialActiveTag: string | null;
+  onTagChange: (tag: string | null) => void;
+  searchQuery: string;
+  onSearchChange: (query: string) => void;
 }
 
-export function BlogHeader({ tags, initialActiveTag }: BlogHeaderProps) {
-  const [searchValue, setSearchValue] = useState('');
-  const [activeTag, setActiveTag] = useState(initialActiveTag);
-
+export function BlogHeader({ 
+  tags, 
+  initialActiveTag,
+  onTagChange,
+  searchQuery,
+  onSearchChange 
+}: BlogHeaderProps) {
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSearchValue(value);
-    // Logique de filtrage ici
-  };
-
-  const handleTagFilter = (tag: string | null) => {
-    setActiveTag(tag);
-    // Logique de filtrage ici
+    onSearchChange(e.target.value);
   };
 
   return (
@@ -38,7 +36,7 @@ export function BlogHeader({ tags, initialActiveTag }: BlogHeaderProps) {
           <input
             type="text"
             placeholder="Rechercher des articles..."
-            value={searchValue}
+            value={searchQuery}
             onChange={handleSearchChange}
             className="w-full bg-transparent py-2 pl-10 pr-4 text-neutral-900 placeholder-neutral-500 focus:outline-none dark:text-white dark:placeholder-neutral-400 terminal-text"
           />
@@ -47,9 +45,9 @@ export function BlogHeader({ tags, initialActiveTag }: BlogHeaderProps) {
       
       <div className="flex flex-wrap items-center justify-center gap-2">
         <button
-          onClick={() => handleTagFilter(null)}
+          onClick={() => onTagChange(null)}
           className={`underground-button text-sm font-medium transition-colors ${
-            activeTag === null
+            initialActiveTag === null
               ? 'industrial-glitch'
               : ''
           }`}
@@ -59,9 +57,9 @@ export function BlogHeader({ tags, initialActiveTag }: BlogHeaderProps) {
         {tags.map(tag => (
           <button
             key={tag}
-            onClick={() => handleTagFilter(tag)}
+            onClick={() => onTagChange(tag)}
             className={`underground-button text-sm font-medium transition-colors ${
-              activeTag === tag
+              initialActiveTag === tag
                 ? 'industrial-glitch'
                 : ''
             }`}

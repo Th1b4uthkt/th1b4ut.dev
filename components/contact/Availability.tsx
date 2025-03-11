@@ -1,4 +1,4 @@
-import { availabilityInfo } from "../../../Data/contact-data";
+import { availabilityInfo } from "@/Data/contact-data";
 import { Calendar } from "lucide-react";
 
 export function Availability() {

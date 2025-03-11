@@ -1,4 +1,4 @@
-import { callToActionInfo } from "../../../Data/contact-data";
+import { callToActionInfo } from "@/Data/contact-data";
 import { Video } from "lucide-react";
 
 export function CallToAction() {

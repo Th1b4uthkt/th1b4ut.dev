@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 // import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { faqItems } from "../../../Data/contact-data";
+import { faqItems } from "@/Data/contact-data";
 
 export function FAQ() {
   return (

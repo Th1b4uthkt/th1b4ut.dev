@@ -1,4 +1,4 @@
-import { contactInfo } from "../../../Data/contact-data";
+import { contactInfo } from "@/Data/contact-data";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export function ContactInfo() {

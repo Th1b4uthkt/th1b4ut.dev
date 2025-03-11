@@ -1,4 +1,4 @@
-import { socialLinks } from "../../../Data/contact-data";
+import { socialLinks } from "@/Data/contact-data";
 import { Github, Linkedin, Twitter, Link } from "lucide-react";
 
 const iconMap = {
