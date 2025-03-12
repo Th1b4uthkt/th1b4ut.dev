@@ -199,7 +199,7 @@ export const whitelabelPricing: WhitelabelPricing[] = [
     price: "2000€",
     description: "Lancez votre app en 15 jours",
     features: [
-      "Template au choix",
+      "Template Predefini",
       "Personnalisation basique",
       "Backend inclus",
       "Publication stores",

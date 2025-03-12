@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 interface ProfileSectionProps {
   title: string;
@@ -28,10 +29,14 @@ export function ProfileSection({ title, paragraphs, skills }: ProfileSectionProp
       
       <div className="flex items-center justify-center">
         <div className="relative w-64 h-64 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/10">
-          {/* Remplacer par une vraie image */}
-          <div className="absolute inset-0 flex items-center justify-center text-4xl font-mono text-muted-foreground">
-            Th1b4ut
-          </div>
+          <Image
+            src="https://res.cloudinary.com/dwg6ny1kj/image/upload/t_600x400/v1741775971/IMG_7893_iqwydl.jpg"
+            alt="Profile picture"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 256px, 256px"
+            priority
+          />
         </div>
       </div>
     </div>

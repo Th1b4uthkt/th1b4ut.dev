@@ -24,15 +24,6 @@ export function ServiceHeader() {
           <SkillsRadarDemo />
         </div>
       </div>
-      
-      <div className="flex flex-wrap gap-4 justify-center">
-        <button className="underground-button px-6 py-3 rounded-sm">
-          Découvrir nos services
-        </button>
-        <div className="industrial-border px-6 py-3 rounded-sm">
-          <span className="text-muted-foreground">Nous contacter</span>
-        </div>
-      </div>
     </div>
   );
 } 

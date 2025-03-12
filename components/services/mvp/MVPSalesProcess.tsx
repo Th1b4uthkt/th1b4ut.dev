@@ -29,7 +29,7 @@ export default function MVPSalesProcess({ steps }: MVPSalesProcessProps) {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 neon-text">Tunnel de Vente</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 neon-text">PROCESS</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             3 Étapes Simplissimes pour transformer votre idée en MVP fonctionnel
           </p>

@@ -157,8 +157,8 @@ export function Contact() {
                   Contact Direct
                 </h3>
                 <div className="space-y-2 text-muted-foreground">
-                  <p>Email: contact@th1b4ut.fr</p>
-                  <p>Twitter: @th1b4ut</p>
+                  <p>Email: contact@th1b4ut.dev</p>
+                  <p>Twitter: @th1b4ut_dev</p>
                   <p>LinkedIn: /in/th1b4ut</p>
                 </div>
               </div>

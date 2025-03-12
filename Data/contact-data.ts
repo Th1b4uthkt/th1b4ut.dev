@@ -17,7 +17,7 @@ export const socialLinks = [
   },
   {
     name: "Twitter/X",
-    url: "https://x.com/thibaut_hook",
+    url: "https://x.com/th1b4ut_dev",
     icon: "twitter",
   },
   {
