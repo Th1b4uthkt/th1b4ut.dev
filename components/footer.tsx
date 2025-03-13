@@ -91,7 +91,7 @@ export function Footer() {
                 </svg>
               </Link>
               <Link 
-                href="https://x.com/thibaut_hook" 
+                href="https://x.com/th1b4ut_dev" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground/80 hover:text-primary transition-colors"
