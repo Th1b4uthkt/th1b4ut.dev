@@ -1,10 +1,30 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { TechnicalSkills } from "@/components/home/TechnicalSkills";
-import { WhiteLabelProduction } from "@/components/home/WhiteLabelProduction";
-import { AiDifferentiation } from "@/components/home/AiDifferentiation";
-import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import { ContactSection } from "@/components/home/ContactSection";
-import { VoiceAISection } from "@/components/home/VoiceAISection";
+import dynamic from 'next/dynamic';
+
+// Lazy load components that are not immediately visible
+const TechnicalSkills = dynamic(() => import("@/components/home/TechnicalSkills").then(mod => ({ default: mod.TechnicalSkills })), {
+  loading: () => <div className="w-full h-80 flex items-center justify-center">Chargement...</div>
+});
+
+const WhiteLabelProduction = dynamic(() => import("@/components/home/WhiteLabelProduction").then(mod => ({ default: mod.WhiteLabelProduction })), {
+  loading: () => <div className="w-full h-80 flex items-center justify-center">Chargement...</div>
+});
+
+const AiDifferentiation = dynamic(() => import("@/components/home/AiDifferentiation").then(mod => ({ default: mod.AiDifferentiation })), {
+  loading: () => <div className="w-full h-80 flex items-center justify-center">Chargement...</div>
+});
+
+const TestimonialsSection = dynamic(() => import("@/components/home/TestimonialsSection").then(mod => ({ default: mod.TestimonialsSection })), {
+  loading: () => <div className="w-full h-80 flex items-center justify-center">Chargement...</div>
+});
+
+const ContactSection = dynamic(() => import("@/components/home/ContactSection").then(mod => ({ default: mod.ContactSection })), {
+  loading: () => <div className="w-full h-80 flex items-center justify-center">Chargement...</div>
+});
+
+const VoiceAISection = dynamic(() => import("@/components/home/VoiceAISection").then(mod => ({ default: mod.VoiceAISection })), {
+  loading: () => <div className="w-full h-80 flex items-center justify-center">Chargement...</div>
+});
 
 export default function Home() {
   return (

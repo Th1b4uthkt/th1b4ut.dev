@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 import Marquee from "react-fast-marquee";
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 // Import testimonials data
 import { testimonials, Testimonial } from "../../Data/Testimonials";
@@ -14,37 +15,28 @@ export function TestimonialsSection() {
     triggerOnce: true,
     threshold: 0.1,
   });
+  
+  // Utiliser useState pour contrôler le rendu des éléments lourds
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  // Retarder le chargement du Marquee pour améliorer les performances
+  useEffect(() => {
+    // Permettre au premier rendu de se terminer
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 200);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="w-full py-10 md:py-16 lg:py-20 bg-background/50 relative overflow-hidden cyber-grid">
-      {/* Background design elements futuristes */}
-      <div className="absolute inset-0 bg-grid-small-white/[0.03] -z-10 matrix-rain" />
+      {/* Background design elements futuristes - simplifiés */}
+      <div className="absolute inset-0 bg-grid-small-white/[0.03] -z-10" />
       
-      {/* Animated circle backgrounds */}
-      <motion.div 
-        className="absolute -top-40 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl opacity-40 -z-10"
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{ 
-          duration: 15,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-      />
-      <motion.div 
-        className="absolute -bottom-40 -left-20 w-96 h-96 rounded-full bg-accent/5 blur-3xl opacity-40 -z-10"
-        animate={{ 
-          scale: [1, 1.3, 1],
-          opacity: [0.3, 0.4, 0.3],
-        }}
-        transition={{ 
-          duration: 20,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-      />
+      {/* Animated circle backgrounds - animations réduites */}
+      <div className="absolute -top-40 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl opacity-40 -z-10" />
+      <div className="absolute -bottom-40 -left-20 w-96 h-96 rounded-full bg-accent/5 blur-3xl opacity-40 -z-10" />
       
       {/* Grid lines with scanline effect */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent scanline" />
@@ -72,45 +64,34 @@ export function TestimonialsSection() {
             </p>
           </div>
           
-          <motion.div 
-            className="flex items-center gap-1 mt-1"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
+          <div className="flex items-center gap-1 mt-1">
             {[...Array(5)].map((_, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3 + i * 0.1 }}
-                whileHover={{ scale: 1.2, rotate: 5 }}
-              >
-                <FaStar className="text-yellow-400 h-4 w-4 md:h-5 md:w-5 shadow-glow" />
-              </motion.div>
+              <FaStar key={i} className="text-yellow-400 h-4 w-4 md:h-5 md:w-5 shadow-glow" />
             ))}
             <span className="text-xs md:text-sm text-muted-foreground ml-2 matrix-text">5.0 / 5 en moyenne</span>
-          </motion.div>
+          </div>
         </motion.div>
 
         <div ref={ref} className="mt-6 md:mt-8 w-full mx-auto overflow-hidden">
-          {/* Horizontal Marquee for testimonials - fully responsive */}
-          <Marquee
-            speed={30}
-            pauseOnHover={true}
-            gradient={true}
-            gradientColor={"#000000"}
-            gradientWidth={60}
-            className="overflow-hidden"
-          >
-            <div className="flex gap-4 py-2">
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="mx-2 w-[280px] sm:w-[320px] md:w-[350px] lg:w-[380px]">
-                  <TestimonialCard testimonial={testimonial} />
-                </div>
-              ))}
-            </div>
-          </Marquee>
+          {/* Ne charger le Marquee que lorsque le composant est prêt */}
+          {isLoaded && (
+            <Marquee
+              speed={20} // Vitesse réduite
+              pauseOnHover={true}
+              gradient={true}
+              gradientColor={"#000000"}
+              gradientWidth={60}
+              className="overflow-hidden"
+            >
+              <div className="flex gap-4 py-2">
+                {testimonials.map((testimonial) => (
+                  <div key={testimonial.id} className="mx-2 w-[280px] sm:w-[320px] md:w-[350px] lg:w-[380px]">
+                    <TestimonialCard testimonial={testimonial} />
+                  </div>
+                ))}
+              </div>
+            </Marquee>
+          )}
         </div>
         
         <motion.div 
@@ -120,44 +101,28 @@ export function TestimonialsSection() {
           transition={{ delay: 0.8 }}
         >
           <div className="absolute inset-x-0 h-px -top-5 bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-          <motion.p 
-            className="text-muted-foreground text-xs md:text-sm max-w-md mx-auto underground-text"
-            whileHover={{ scale: 1.03 }}
-          >
+          <p className="text-muted-foreground text-xs md:text-sm max-w-md mx-auto underground-text">
             Découvrez comment mes <span className="text-gradient">solutions personnalisées</span> ont aidé des entreprises à atteindre leurs objectifs et à développer leur activité.
-          </motion.p>
+          </p>
         </motion.div>
       </div>
     </section>
   );
 }
 
+// Optimisé pour réduire les animations excessives
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <motion.div
-      className="h-full rounded-xl border cyber-border glass-card p-4 md:p-5 shadow-cyber-card hover:shadow-neon-strong transition-all duration-300 digital-noise"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -5 }}
+    <div
+      className="h-full rounded-xl border cyber-border glass-card p-4 md:p-5 shadow-cyber-card hover:shadow-neon transition-all duration-300 digital-noise"
     >
       <div className="mb-2 flex justify-between items-start">
-        <motion.div 
-          className="h-7 w-7 md:h-8 md:w-8 rounded-full flex items-center justify-center bg-primary/10 text-primary shadow-glow"
-          whileHover={{ rotate: 15, scale: 1.1 }}
-        >
+        <div className="h-7 w-7 md:h-8 md:w-8 rounded-full flex items-center justify-center bg-primary/10 text-primary shadow-glow">
           <FaQuoteLeft className="h-3 w-3 md:h-4 md:w-4" />
-        </motion.div>
+        </div>
         <div className="flex">
           {[...Array(testimonial.rating)].map((_, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.2, y: -2 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <FaStar key={i} className="h-3 w-3 md:h-4 md:w-4 text-yellow-400 shadow-glow" />
-            </motion.div>
+            <FaStar key={i} className="h-3 w-3 md:h-4 md:w-4 text-yellow-400 shadow-glow" />
           ))}
         </div>
       </div>
@@ -169,15 +134,15 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       </p>
       
       <div className="flex items-center pt-2 border-t border-muted/30">
-        <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-muted mr-3 overflow-hidden shadow-cyber relative group">
-          <div className="absolute inset-0 bg-gradient-conic from-primary/20 via-accent/20 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity animate-rotate-slow"></div>
+        <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-muted mr-3 overflow-hidden shadow-cyber relative">
           {testimonial.image ? (
             <Image
               src={testimonial.image}
               alt={testimonial.name}
               width={48}
               height={48}
-              className="rounded-full object-cover vhs-effect"
+              className="rounded-full object-cover"
+              loading="lazy"
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center bg-primary/10 text-primary font-medium matrix-text">
@@ -192,6 +157,6 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 } 

@@ -7,11 +7,16 @@ import { FaCode, FaMobileAlt, FaJava } from "react-icons/fa";
 import { useState } from "react";
 import { techStacks, getProjectsByCategory, ProjectCategory } from "@/Data/projects";
 import { LampContainer } from "@/components/ui/lamp";
-import { TypeAnimation } from 'react-type-animation';
+import dynamic from 'next/dynamic';
 
-export function HeroSection() {
-  const [activeTab, setActiveTab] = useState<ProjectCategory>("web");
+// Lazy load TypeAnimation component as it's heavy and client-only
+const TypeAnimation = dynamic(
+  () => import('react-type-animation').then(mod => mod.TypeAnimation),
+  { ssr: false }
+);
 
+// Interactive part of HeroSection - client only
+function HeroInteractive({ activeTab, setActiveTab }: { activeTab: ProjectCategory, setActiveTab: (tab: ProjectCategory) => void }) {
   // Define typing sequences for each tab
   const typingSequences = {
     web: [
@@ -42,30 +47,103 @@ export function HeroSection() {
     ]
   };
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.15
-      }
-    }
-  };
+  return (
+    <>
+      <motion.div 
+        className="flex justify-center sm:justify-start gap-2 pt-0 sm:pt-2"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+      >
+        <Button 
+          variant={activeTab === "web" ? "default" : "outline"} 
+          size="sm" 
+          onClick={() => setActiveTab("web")}
+          className={`${activeTab === "web" ? "shadow-neon" : "border-primary/20"} transition-all duration-300`}
+        >
+          <FaCode className="h-3 w-3 mr-1" /> Web
+        </Button>
+        <Button 
+          variant={activeTab === "mobile" ? "default" : "outline"} 
+          size="sm" 
+          onClick={() => setActiveTab("mobile")}
+          className={`${activeTab === "mobile" ? "shadow-neon" : "border-primary/20"} transition-all duration-300`}
+        >
+          <FaMobileAlt className="h-3 w-3 mr-1" /> Mobile
+        </Button>
+        <Button 
+          variant={activeTab === "java" ? "default" : "outline"} 
+          size="sm" 
+          onClick={() => setActiveTab("java")}
+          className={`${activeTab === "java" ? "shadow-neon" : "border-primary/20"} transition-all duration-300`}
+        >
+          <FaJava className="h-3 w-3 mr-1" /> Java
+        </Button>
+      </motion.div>
+      
+      {/* Animation de frappe avec style terminal underground */}
+      <motion.div 
+        className="pt-4 block" 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+      >
+        <div className="terminal-underground text-xs sm:text-sm">
+          <TypeAnimation
+            key={activeTab}
+            sequence={typingSequences[activeTab]}
+            wrapper="span"
+            speed={50}
+            style={{ display: 'inline-block' }}
+            repeat={Infinity}
+            cursor={false}
+          />
+        </div>
+      </motion.div>
+    </>
+  );
+}
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 100, damping: 15 }
-    }
-  };
+// Static part of the header - can be rendered on server
+function HeroHeader() {
+  return (
+    <LampContainer className="relative min-h-0 h-auto w-full bg-transparent overflow-visible py-4 md:py-10 mb-4 md:mb-10">
+      <div className="text-center">
+        <motion.h1 
+          className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-5xl lg:text-6xl/none underground-gradient-text"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          Thibaut | <span className="text-primary">Full Stack</span> Developer
+        </motion.h1>
+        <p className="max-w-[600px] text-muted-foreground text-sm md:text-xl mx-auto mt-1 md:mt-4">
+          Expert en <span className="text-primary font-semibold">Web</span>, 
+          <span className="text-accent font-semibold"> Mobile</span> & 
+          <span className="text-secondary font-semibold"> IA</span> – Solutions sur mesure
+        </p>
+        
+        {/* Badge avec style underground */}
+        <motion.div
+          className="pt-1 md:pt-4 hidden sm:block"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <div className="industrial-border inline-block px-4 py-1">
+            <span className="underground-text text-xs sm:text-sm">+15 ans d&apos;expérience en développement multi-plateforme</span>
+          </div>
+        </motion.div>
+      </div>
+    </LampContainer>
+  );
+}
 
-  // Récupérer les projets pour la catégorie active
+// Main component combining static and interactive parts
+export function HeroSection() {
+  const [activeTab, setActiveTab] = useState<ProjectCategory>("web");
   const categoryProjects = getProjectsByCategory(activeTab);
-
+  
   return (
     <section className="w-full py-6 md:py-12 lg:py-20 xl:py-24 relative overflow-hidden">
       {/* Background decoration avec style underground */}
@@ -79,114 +157,67 @@ export function HeroSection() {
       
       <div className="container px-4 md:px-6 mx-auto">
         {/* Hero header avec LampContainer et style underground */}
-        <LampContainer className="relative min-h-0 h-auto w-full bg-transparent overflow-visible py-4 md:py-10 mb-4 md:mb-10">
-          <div className="text-center">
-            <motion.h1 
-              className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-5xl lg:text-6xl/none underground-gradient-text"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              Thibaut | <span className="text-primary">Full Stack</span> Developer
-            </motion.h1>
-            <p className="max-w-[600px] text-muted-foreground text-sm md:text-xl mx-auto mt-1 md:mt-4">
-              Expert en <span className="text-primary font-semibold">Web</span>, 
-              <span className="text-accent font-semibold"> Mobile</span> & 
-              <span className="text-secondary font-semibold"> IA</span> – Solutions sur mesure
-            </p>
-            
-            {/* Badge avec style underground */}
-            <motion.div
-              className="pt-1 md:pt-4 hidden sm:block"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <div className="industrial-border inline-block px-4 py-1">
-                <span className="underground-text text-xs sm:text-sm">+15 ans d&apos;expérience en développement multi-plateforme</span>
-              </div>
-            </motion.div>
-          </div>
-        </LampContainer>
+        <HeroHeader />
 
         {/* VU-mètre animé */}
         <div className="vu-meter mx-auto w-1/2 max-w-[300px] mb-8" style={{ "--level": "85%" } as React.CSSProperties}></div>
 
         {/* Contenu principal avec style underground */}
         <motion.div 
-          className="flex flex-col lg:flex-row lg:items-center lg:gap-12 max-w-6xl mx-auto relative z-10"
-          variants={containerVariants}
+          className="flex flex-col lg:flex-row lg:items-start lg:gap-12 max-w-6xl mx-auto relative z-10"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                delayChildren: 0.2,
+                staggerChildren: 0.15
+              }
+            }
+          }}
           initial="hidden"
           animate="visible"
         >
           {/* Colonne gauche pour le texte */}
           <motion.div 
-            className="flex flex-col justify-center space-y-3 lg:space-y-8 flex-shrink-0 lg:w-[55%] pb-6 lg:pb-0"
-            variants={itemVariants}
+            className="flex flex-col justify-center space-y-3 lg:space-y-8 flex-shrink-0 lg:w-[45%] pb-6 lg:pb-0"
+            variants={{
+              hidden: { y: 20, opacity: 0 },
+              visible: {
+                y: 0,
+                opacity: 1,
+                transition: { type: "spring", stiffness: 100, damping: 15 }
+              }
+            }}
           >
-            <motion.div className="space-y-2" variants={itemVariants}>
+            <motion.div className="space-y-2">
               {/* Onglets de catégorie avec style underground */}
-              <motion.div 
-                className="flex justify-center sm:justify-start gap-2 pt-0 sm:pt-2"
-                variants={itemVariants}
-              >
-                <Button 
-                  variant={activeTab === "web" ? "default" : "outline"} 
-                  size="sm" 
-                  onClick={() => setActiveTab("web")}
-                  className={`${activeTab === "web" ? "shadow-neon" : "border-primary/20"} transition-all duration-300`}
-                >
-                  <FaCode className="h-3 w-3 mr-1" /> Web
-                </Button>
-                <Button 
-                  variant={activeTab === "mobile" ? "default" : "outline"} 
-                  size="sm" 
-                  onClick={() => setActiveTab("mobile")}
-                  className={`${activeTab === "mobile" ? "shadow-neon" : "border-primary/20"} transition-all duration-300`}
-                >
-                  <FaMobileAlt className="h-3 w-3 mr-1" /> Mobile
-                </Button>
-                <Button 
-                  variant={activeTab === "java" ? "default" : "outline"} 
-                  size="sm" 
-                  onClick={() => setActiveTab("java")}
-                  className={`${activeTab === "java" ? "shadow-neon" : "border-primary/20"} transition-all duration-300`}
-                >
-                  <FaJava className="h-3 w-3 mr-1" /> Java
-                </Button>
-              </motion.div>
-            </motion.div>
-            
-            {/* Animation de frappe avec style terminal underground */}
-            <motion.div 
-              className="pt-4 block" 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
-              <div className="terminal-underground text-xs sm:text-sm">
-                <TypeAnimation
-                  key={activeTab}
-                  sequence={typingSequences[activeTab]}
-                  wrapper="span"
-                  speed={50}
-                  style={{ display: 'inline-block' }}
-                  repeat={Infinity}
-                  cursor={false}
-                />
-              </div>
+              <HeroInteractive activeTab={activeTab} setActiveTab={setActiveTab} />
             </motion.div>
           </motion.div>
           
           {/* Colonne droite pour la carte interactive */}
           <motion.div 
-            className="flex items-center justify-center lg:justify-end w-full lg:w-[45%]"
-            variants={itemVariants}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex-1 lg:w-[55%] mt-6 lg:mt-0"
+            variants={{
+              hidden: { opacity: 0, x: 20 },
+              visible: {
+                opacity: 1,
+                x: 0,
+                transition: { type: "spring", stiffness: 100, damping: 15, delay: 0.3 }
+              }
+            }}
           >
-            <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-full aspect-square lg:aspect-auto lg:h-[450px]">
+            <motion.div 
+              className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-full aspect-square lg:aspect-auto lg:h-[450px] mx-auto lg:mx-0"
+              variants={{
+                hidden: { opacity: 0, x: 20 },
+                visible: { opacity: 1, x: 0 }
+              }}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               {/* Effet de lueur avec style underground */}
               <motion.div 
                 className="absolute inset-0 rounded-sm bg-gradient-to-r from-primary/20 via-accent/10 to-secondary/20 blur-2xl opacity-30"
@@ -260,7 +291,7 @@ export function HeroSection() {
                   </motion.div>
                 </div>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
