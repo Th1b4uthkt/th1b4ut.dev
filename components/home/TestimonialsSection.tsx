@@ -30,13 +30,12 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section className="w-full py-10 md:py-16 lg:py-20 bg-background/50 relative overflow-hidden cyber-grid">
-      {/* Background design elements futuristes - simplifiés */}
-      <div className="absolute inset-0 bg-grid-small-white/[0.03] -z-10" />
+    <section className="w-full py-10 md:py-16 lg:py-20 bg-background/50 relative overflow-hidden">
+      {/* Réduire le nombre d'effets de fond */}
+      <div className="absolute inset-0 bg-grid-small-white/[0.02] -z-10" />
       
-      {/* Animated circle backgrounds - animations réduites */}
-      <div className="absolute -top-40 right-0 w-96 h-96 rounded-full bg-primary/5 blur-3xl opacity-40 -z-10" />
-      <div className="absolute -bottom-40 -left-20 w-96 h-96 rounded-full bg-accent/5 blur-3xl opacity-40 -z-10" />
+      {/* Supprimer ou simplifier les cercles animés */}
+      <div className="absolute -top-40 right-0 w-72 h-72 rounded-full bg-primary/5 blur-2xl opacity-30 -z-10" />
       
       {/* Grid lines with scanline effect */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent scanline" />
@@ -76,15 +75,12 @@ export function TestimonialsSection() {
           {/* Ne charger le Marquee que lorsque le composant est prêt */}
           {isLoaded && (
             <Marquee
-              speed={20} // Vitesse réduite
-              pauseOnHover={true}
-              gradient={true}
-              gradientColor={"#000000"}
-              gradientWidth={60}
+              speed={30} // Augmenter légèrement la vitesse
+              gradientWidth={100} // Augmenter la largeur du gradient
               className="overflow-hidden"
             >
               <div className="flex gap-4 py-2">
-                {testimonials.map((testimonial) => (
+                {testimonials.slice(0, 5).map((testimonial) => ( // Limiter le nombre de témoignages affichés
                   <div key={testimonial.id} className="mx-2 w-[280px] sm:w-[320px] md:w-[350px] lg:w-[380px]">
                     <TestimonialCard testimonial={testimonial} />
                   </div>
@@ -113,9 +109,17 @@ export function TestimonialsSection() {
 // Optimisé pour réduire les animations excessives
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div
-      className="h-full rounded-xl border cyber-border glass-card p-4 md:p-5 shadow-cyber-card hover:shadow-neon transition-all duration-300 digital-noise"
-    >
+    <div className="h-full rounded-xl border cyber-border glass-card p-4 md:p-5 shadow-cyber-card hover:shadow-neon transition-all duration-300">
+      {testimonial.image && (
+        <Image
+          src={testimonial.image}
+          alt={testimonial.name}
+          width={48}
+          height={48}
+          loading="lazy"
+          className="rounded-full"
+        />
+      )}
       <div className="mb-2 flex justify-between items-start">
         <div className="h-7 w-7 md:h-8 md:w-8 rounded-full flex items-center justify-center bg-primary/10 text-primary shadow-glow">
           <FaQuoteLeft className="h-3 w-3 md:h-4 md:w-4" />

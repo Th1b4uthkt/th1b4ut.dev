@@ -6,6 +6,7 @@
 // import { motion } from "framer-motion";
 import dynamic from 'next/dynamic';
 import { FaMobileAlt } from "react-icons/fa";
+import { projects } from "@/Data/projects";
 
 // Import Swiper directly for types
 // import type { SwiperProps, SwiperSlideProps } from 'swiper/react';
@@ -14,75 +15,24 @@ import { FaMobileAlt } from "react-icons/fa";
 // Lazy load Swiper components which are heavy and only needed when section is visible
 const DynamicSwiper = dynamic(() => import('../utils/DynamicSwiper'), { ssr: false });
 
-// White Label App Types
-interface WhiteLabelApp {
-  id: string;
-  title: string;
-  description: string;
-  features: string[];
-  image: string;
-  icon: React.ReactNode;
-  color: string;
-}
+// Get only mobile white label projects
+const getWhiteLabelProjects = () => {
+  return projects.filter(project => 
+    project.category === "mobile" && 
+    project.tags.includes("Marque Blanche")
+  );
+};
 
-const whiteLabelApps: WhiteLabelApp[] = [
-  {
-    id: "coaching-fit",
-    title: "Coaching-FIT",
-    description: "Application de coaching fitness personnalisé avec suivi de progression et plans d'entraînement sur mesure",
-    features: [
-      "Suivi de progression avancé",
-      "Plans d'entraînement personnalisés",
-      "Intégration avec les appareils connectés",
-      "Communauté et défis entre utilisateurs"
-    ],
-    image: "https://placehold.co/600x450/3B82F6/FFFFFF?text=Coaching-FIT",
-    icon: <FaMobileAlt className="h-6 w-6" />,
-    color: "from-blue-500 to-cyan-400"
-  },
-  {
-    id: "coaching-dev",
-    title: "Coaching-Dev Perso",
-    description: "Plateforme de développement personnel avec coaching, méditation et exercices de respiration guidés",
-    features: [
-      "Séances de méditation guidées",
-      "Suivi d'objectifs personnels",
-      "Journal de gratitude",
-      "Analyses de progression mentale"
-    ],
-    image: "https://placehold.co/600x450/A855F7/FFFFFF?text=Coaching-Dev+Perso",
-    icon: <FaMobileAlt className="h-6 w-6" />,
-    color: "from-purple-500 to-pink-400"
-  },
-  {
-    id: "traveling",
-    title: "Traveling",
-    description: "Application de voyage avec carte interactive et blog pour partager ses expériences et découvertes",
-    features: [
-      "Carte interactive personnalisable",
-      "Blog de voyage intégré",
-      "Recommandations locales",
-      "Planification d'itinéraires"
-    ],
-    image: "https://placehold.co/600x450/10B981/FFFFFF?text=Traveling",
-    icon: <FaMobileAlt className="h-6 w-6" />,
-    color: "from-green-500 to-emerald-400"
-  },
-  {
-    id: "chatbot",
-    title: "ChatBot",
-    description: "Solution de chatbot IA similaire à ChatGPT pour l'assistance client et l'automatisation des services",
-    features: [
-      "IA conversationnelle avancée",
-      "Intégration multi-plateforme",
-      "Personnalisation complète",
-      "Analyses de conversations"
-    ],
-    image: "https://placehold.co/600x450/F97316/FFFFFF?text=ChatBot",
-    icon: <FaMobileAlt className="h-6 w-6" />,
-    color: "from-orange-500 to-amber-400"
-  }
-];
+// Mapping des couleurs en fonction du projet
+const getProjectColor = (index: number): string => {
+  const colors = [
+    "from-blue-500 to-cyan-400",
+    "from-purple-500 to-pink-400",
+    "from-green-500 to-emerald-400",
+    "from-orange-500 to-amber-400"
+  ];
+  return colors[index % colors.length];
+};
 
 // StaticContent component for static parts
 function StaticContent() {
@@ -103,6 +53,19 @@ function StaticContent() {
 
 // Main component
 export function WhiteLabelProduction() {
+  const whiteLabelProjects = getWhiteLabelProjects();
+
+  // Transform projects to match DynamicSwiper format
+  const swiperItems = whiteLabelProjects.map((project, index) => ({
+    id: project.id.toString(),
+    title: project.title,
+    description: project.description,
+    features: project.tags,
+    image: project.image,
+    icon: <FaMobileAlt className="h-6 w-6" />,
+    color: getProjectColor(index)
+  }));
+
   return (
     <section className="relative w-full py-12 md:py-24 overflow-hidden">
       {/* Background elements avec style underground */}
@@ -116,7 +79,7 @@ export function WhiteLabelProduction() {
 
         {/* Section Swiper avec style underground */}
         <div className="w-full max-w-[1400px] mx-auto">
-          <DynamicSwiper items={whiteLabelApps} />
+          <DynamicSwiper items={swiperItems} />
         </div>
       </div>
 
