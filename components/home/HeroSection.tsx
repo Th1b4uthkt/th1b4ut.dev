@@ -115,7 +115,7 @@ function HeroHeader() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          Thibaut | <span className="text-primary">Full Stack</span> Developer
+          Th1b4ut | <span className="text-primary">Full Stack</span> Developer
         </motion.h1>
         <p className="max-w-[600px] text-muted-foreground text-sm md:text-xl mx-auto mt-1 md:mt-4">
           Expert en <span className="text-primary font-semibold">Web</span>, 

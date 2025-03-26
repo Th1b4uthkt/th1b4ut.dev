@@ -138,7 +138,7 @@ export const mvpData: MVPData = {
       title: "Coaching-FIT",
       description: "Application de coaching fitness personnalisé",
       stats: "App mobile marque blanche déployée sur l'App Store en 10 jours",
-      image: "https://placehold.co/600x450/3B82F6/FFFFFF?text=Coaching-FIT",
+      image: "https://res.cloudinary.com/dkq9wz00t/image/upload/v1742994420/Brown_Beige_Skincare_New_Product_Instagram_Post_bq51je.png",
       category: "mobile"
     }
   ],

@@ -1,5 +1,5 @@
 export const contactInfo = {
-  email: "contact@th1b4ut.dev",
+  email: "th1b4ut.dev@gmail.com",
   phone: "+33 7 44 17 69 88",
   location: "Bordeaux, Bangkok",
 };
@@ -22,7 +22,7 @@ export const socialLinks = [
   },
   {
     name: "Malt",
-    url: "https://malt.fr",
+    url: "https://www.malt.fr/profile/thibautmarcelot",
     icon: "malt",
   },
 ];

@@ -52,7 +52,7 @@ export const whitelabelTemplates: WhitelabelTemplate[] = [
     id: "fitness",
     name: "Coaching-FIT",
     description: "Application de coaching fitness personnalisé avec IA",
-    image: "/images/templates/fitness.webp",
+    image: "https://res.cloudinary.com/dkq9wz00t/image/upload/v1742982833/1_zefofe.png",
     stats: {
       deliveryTime: "12 jours",
       activeUsers: "8k",
@@ -70,7 +70,7 @@ export const whitelabelTemplates: WhitelabelTemplate[] = [
     id: "chatbot",
     name: "ChatBot IA",
     description: "Assistant virtuel personnalisé style ChatGPT",
-    image: "/images/templates/chatbot.webp",
+    image: "https://res.cloudinary.com/dkq9wz00t/image/upload/v1742997377/1_aqir7g.png",
     stats: {
       deliveryTime: "10 jours",
       activeUsers: "15k",
@@ -88,7 +88,7 @@ export const whitelabelTemplates: WhitelabelTemplate[] = [
     id: "travel",
     name: "Traveling",
     description: "Application de voyage et découverte",
-    image: "/images/templates/travel.webp",
+    image: "https://res.cloudinary.com/dkq9wz00t/image/upload/v1742983240/1_bn0slx.png",
     stats: {
       deliveryTime: "15 jours",
       activeUsers: "3k",
@@ -106,7 +106,7 @@ export const whitelabelTemplates: WhitelabelTemplate[] = [
     id: "coaching",
     name: "Dev Perso",
     description: "Application de développement personnel et méditation",
-    image: "/images/templates/coaching.webp",
+    image: "https://res.cloudinary.com/dkq9wz00t/image/upload/v1742994420/Brown_Beige_Skincare_New_Product_Instagram_Post_bq51je.png",
     stats: {
       deliveryTime: "14 jours",
       activeUsers: "5k",
@@ -134,7 +134,7 @@ export const whitelabelCases: WhitelabelCase[] = [
       timeToMarket: "30 jours",
       impact: "Code modifié 3x",
     },
-    image: "/images/cases/fitlife.webp",
+    image: "https://res.cloudinary.com/dkq9wz00t/image/upload/v1742982833/3_dbgnin.png",
     videoUrl: "/videos/testimonial-fitlife.mp4",
   },
   {
@@ -161,7 +161,7 @@ export const whitelabelCases: WhitelabelCase[] = [
       timeToMarket: "15 jours",
       impact: "200 réservations/mois",
     },
-    image: "/images/cases/wanderlust.webp",
+    image: "https://res.cloudinary.com/dkq9wz00t/image/upload/v1742983311/2_rioie4.png",
   },
 ];
 
